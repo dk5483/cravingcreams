@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Product | Craving Creams</title>
+    <meta name="description" content="Discover premium ice cream products from Craving Creams.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta charset="utf-8">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon/favicon-16x16.png">
+    <meta name="theme-color" content="#ffffff">
+    <link href="assets/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/responsive.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/aos.css" rel="stylesheet">
+    <style>
+        /* ===== Product Page Styles ===== */
+        .product-hero {
+            padding: 160px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        .product-hero::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0.65;
+            background-image: linear-gradient(140deg, #efd7ef 8%, #f5f9fc 39%, #f8eae1 66%, #eaf8f9 91%);
+        }
+        .product-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        .product-hero .breadcrumb-nav {
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+        .product-hero .breadcrumb-nav a {
+            color: #683292;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .product-hero .breadcrumb-nav a:hover {
+            color: #f83d8e;
+        }
+        .product-hero .breadcrumb-nav span {
+            color: #646464;
+        }
+        /* Product Image Section */
+        .product-image-wrapper {
+            background: #fff;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            min-height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .product-image-wrapper::before {
+            content: "";
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            transition: all 0.5s;
+        }
+        .product-image-wrapper:hover::before {
+            width: 380px;
+            height: 380px;
+        }
+        .product-image-wrapper img {
+            max-height: 380px;
+            max-width: 100%;
+            object-fit: contain;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .product-image-wrapper:hover img {
+            transform: scale(1.05) rotate(2deg);
+        }
+        .product-image-wrapper .zoom-hint {
+            position: absolute;
+            bottom: 15px;
+            right: 20px;
+            font-size: 12px;
+            color: #aaa;
+            z-index: 2;
+        }
+        /* Product Info */
+        .product-info {
+            padding-left: 30px;
+        }
+        .product-badge {
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+        .product-info h1 {
+            font-size: 52px;
+            line-height: 56px;
+            margin-bottom: 10px;
+            color: #0f0200;
+        }
+        .product-info .product-category-link {
+            font-size: 16px;
+            color: #683292;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 20px;
+            transition: color 0.3s;
+        }
+        .product-info .product-category-link:hover {
+            color: #f83d8e;
+        }
+        .product-info .product-category-link i {
+            margin-right: 6px;
+        }
+        .product-info .product-description {
+            font-size: 18px;
+            line-height: 30px;
+            color: #646464;
+            margin-bottom: 30px;
+        }
+        /* Highlights */
+        .product-highlights {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 35px;
+        }
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            background: #f9f4fc;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+        .highlight-item:hover {
+            background: #f0e6f6;
+            transform: translateX(4px);
+        }
+        .highlight-item .check-icon {
+            width: 28px;
+            height: 28px;
+            min-width: 28px;
+            line-height: 28px;
+            text-align: center;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #683292, #f83d8e);
+            color: #fff;
+            font-size: 11px;
+        }
+        .highlight-item span {
+            font-size: 14px;
+            font-weight: 600;
+            color: #0f0200;
+        }
+        /* Action Buttons */
+        .product-actions {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .btn-primary-cc {
+            display: inline-block;
+            padding: 16px 36px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #fff;
+            background: linear-gradient(135deg, #683292, #f83d8e);
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s;
+            box-shadow: 0 4px 20px rgba(248, 61, 142, 0.3);
+        }
+        .btn-primary-cc:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(248, 61, 142, 0.4);
+            color: #fff;
+        }
+        .btn-outline-cc {
+            display: inline-block;
+            padding: 14px 36px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #683292;
+            background: transparent;
+            text-decoration: none;
+            border: 2px solid #683292;
+            cursor: pointer;
+            transition: all 0.4s;
+        }
+        .btn-outline-cc:hover {
+            background: #683292;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+        /* Related Products */
+        .related-products {
+            padding: 80px 0 100px;
+            background: #fff;
+        }
+        .related-products h2 {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        .related-products h2 span {
+            color: #f83d8e;
+        }
+        .related-products > .container > p {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 18px;
+        }
+        .related-product-card {
+            display: block;
+            text-decoration: none;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.06);
+            transition: all 0.4s;
+            margin-bottom: 30px;
+        }
+        .related-product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 35px rgba(248, 61, 142, 0.12);
+        }
+        .related-product-card .rp-image {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .related-product-card .rp-image img {
+            max-height: 160px;
+            object-fit: contain;
+            transition: transform 0.4s;
+        }
+        .related-product-card:hover .rp-image img {
+            transform: scale(1.08);
+        }
+        .related-product-card .rp-content {
+            padding: 16px 20px 20px;
+        }
+        .related-product-card .rp-content h6 {
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+        .related-product-card .rp-content p {
+            font-size: 13px;
+            color: #646464;
+            margin-bottom: 0;
+            line-height: 20px;
+        }
+        /* Floating back */
+        .back-floating {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 999;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border-radius: 50%;
+            background: #683292;
+            color: #fff;
+            font-size: 18px;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(104, 50, 146, 0.4);
+            transition: all 0.3s;
+        }
+        .back-floating:hover {
+            background: #f83d8e;
+            color: #fff;
+            transform: scale(1.1);
+        }
+        /* Responsive */
+        @media (max-width: 991px) {
+            .product-info {
+                padding-left: 0;
+                margin-top: 40px;
+            }
+            .product-info h1 {
+                font-size: 40px;
+                line-height: 44px;
+            }
+        }
+        @media (max-width: 576px) {
+            .product-info h1 {
+                font-size: 32px;
+                line-height: 36px;
+            }
+            .product-highlights {
+                grid-template-columns: 1fr;
+            }
+            .product-image-wrapper {
+                min-height: 300px;
+                padding: 20px;
+            }
+            .product-actions {
+                flex-direction: column;
+            }
+            .btn-primary-cc, .btn-outline-cc {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Back to top button -->
+    <a id="button"></a>
+    <!-- Header -->
+    <header class="header" style="position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);box-shadow:0 2px 20px rgba(0,0,0,0.08);">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light p-0">
+                <a class="navbar-brand" href="index.html">
+                    <figure class="logo mb-0"><img src="assets/images/products/logo.png" alt="Craving Creams Logo" class="img-fluid"></figure>
+                </a>
+                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#premium-collection">Premium</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#retail-collection">Retail</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#categories">Categories</a></li>
+                    </ul>
+                    <div class="last_list">
+                        <a class="text-decoration-none contact_us" href="javascript:void(0)">Contact Us<i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Product Hero -->
+    <section class="product-hero">
+        <div class="container">
+            <div class="breadcrumb-nav" id="breadcrumb">
+                <!-- Breadcrumb will be dynamically inserted -->
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-12" data-aos="fade-right">
+                    <div class="product-image-wrapper" id="product-image-box">
+                        <img id="product-image" src="" alt="" class="img-fluid">
+                        <span class="zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Hover to zoom</span>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12" data-aos="fade-left">
+                    <div class="product-info">
+                        <span class="product-badge" id="product-badge"></span>
+                        <h1 id="product-name"></h1>
+                        <a href="#" class="product-category-link" id="category-link">
+                            <i class="fa-solid fa-tags"></i>
+                            <span id="category-name"></span>
+                        </a>
+                        <p class="product-description" id="product-long-desc"></p>
+                        <div class="product-highlights" id="product-highlights">
+                            <!-- Highlights will be dynamically inserted -->
+                        </div>
+                        <div class="product-actions">
+                            <a href="#" class="btn-primary-cc" id="btn-category">
+                                <i class="fa-solid fa-grid-2" style="margin-right:8px;"></i> View All in Category
+                            </a>
+                            <a href="index.html" class="btn-outline-cc">
+                                <i class="fa-solid fa-house" style="margin-right:8px;"></i> Back to Home
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="related-products">
+        <div class="container">
+            <h2 data-aos="fade-up">You May Also <span>Like</span></h2>
+            <p data-aos="fade-up">More delicious options from the same collection.</p>
+            <div class="row" id="related-products" data-aos="fade-up">
+                <!-- Related products will be dynamically inserted -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section class="footer-con position-relative">
+        <figure class="footer-image mb-0">
+            <img class="img-fluid" src="assets/images/footer-image.png" alt="decorative">
+        </figure>
+        <div class="container">
+            <div class="middle_portion">
+                <div class="row">
+                    <div class="col-lg-2 col-md-12 col-sm-6 col-12 order-md-1 order-sm-1 order-1">
+                        <a href="index.html">
+                            <figure class="footer-logo mb-0"><img class="img-fluid" src="assets/images/products/logo.png" alt="Craving Creams Logo"></figure>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-12 order-md-2 order-sm-4 order-2">
+                        <div class="links">
+                            <h5 class="heading">Navigation</h5>
+                            <div class="pages">
+                                <ul class="list-unstyled mb-0 list1">
+                                    <li><i class="fas fa-circle"></i><a href="index.html">Home</a></li>
+                                    <li><i class="fas fa-circle"></i><a href="index.html#premium-collection">Premium</a></li>
+                                </ul>
+                                <ul class="list-unstyled mb-0">
+                                    <li><i class="fas fa-circle"></i><a href="index.html#retail-collection">Retail</a></li>
+                                    <li><i class="fas fa-circle"></i><a href="javascript:void(0)">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-12 order-md-3 order-sm-3 order-3">
+                        <div class="info">
+                            <ul class="list-unstyled mb-0">
+                                <li>
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <div class="text">
+                                        <span>Address:</span>
+                                        <a href="#" class="text-decoration-none address mb-0">Noida, Uttar Pradesh, 201301, India</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fas fa-envelope-open-text"></i>
+                                    <div class="text">
+                                        <span>Email:</span>
+                                        <a href="mailto:info@cravingcreams.com" class="text-decoration-none">info@cravingcreams.com</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-12 order-md-4 order-sm-2 order-4">
+                        <div class="icon">
+                            <div class="phone_wrapper">
+                                <i class="fa-solid fa-phone phone"></i>
+                                <div class="phone_content">
+                                    <a href="tel:+919876543210" class="text-decoration-none d-block">+91 9876543210</a>
+                                    <span>Got Questions? Call us 24/7</span>
+                                </div>
+                            </div>
+                            <ul class="list-unstyled mb-0 social-icons">
+                                <li><a href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a></li>
+                                <li><a href="https://twitter.com/"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="https://www.instagram.com/"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p class="mb-0">Copyright © 2025 Craving Creams. All rights reserved.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back floating button -->
+    <a href="javascript:history.back()" class="back-floating" title="Go Back"><i class="fa-solid fa-arrow-left"></i></a>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/aos.js"></script>
+    <script src="assets/js/back-to-top-button.js"></script>
+    <script src="assets/js/product-data.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({ duration: 800, once: true });
+
+        // Get params from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const categoryId = urlParams.get('cat');
+        const productId = urlParams.get('product');
+
+        if (categoryId && productId && PRODUCT_DATA[categoryId]) {
+            const category = PRODUCT_DATA[categoryId];
+            const product = category.items.find(item => item.id === productId);
+
+            if (product) {
+                // Update page title
+                document.title = product.name + ' — ' + category.title + ' | Craving Creams';
+
+                // Update breadcrumb
+                const breadcrumb = document.getElementById('breadcrumb');
+                breadcrumb.innerHTML = `
+                    <a href="index.html">Home</a>
+                    <span> / </span>
+                    <a href="index.html#${category.type === 'premium' ? 'premium' : 'retail'}-collection">${category.type === 'premium' ? 'Premium' : 'Retail'}</a>
+                    <span> / </span>
+                    <a href="category.html?cat=${categoryId}">${category.title}</a>
+                    <span> / </span>
+                    <span>${product.name}</span>
+                `;
+
+                // Update product image
+                const imageBox = document.getElementById('product-image-box');
+                imageBox.style.setProperty('--bg-color', product.bgColor);
+                imageBox.querySelector('::before') // handled via inline
+                imageBox.style.background = `radial-gradient(circle, ${product.bgColor} 0%, #fff 70%)`;
+                document.getElementById('product-image').src = product.image;
+                document.getElementById('product-image').alt = product.name;
+
+                // Update badge
+                const badge = document.getElementById('product-badge');
+                badge.innerHTML = '<i class="' + category.typeIcon + '" style="margin-right:6px;"></i> ' + category.typeBadge;
+                badge.style.background = category.bannerColor;
+
+                // Update product name
+                document.getElementById('product-name').textContent = product.name;
+
+                // Category link
+                document.getElementById('category-link').href = 'category.html?cat=' + categoryId;
+                document.getElementById('category-name').textContent = category.title;
+
+                // Description
+                document.getElementById('product-long-desc').textContent = product.longDesc;
+
+                // Highlights
+                const highlightsContainer = document.getElementById('product-highlights');
+                product.highlights.forEach(highlight => {
+                    const item = document.createElement('div');
+                    item.className = 'highlight-item';
+                    item.innerHTML = `
+                        <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+                        <span>${highlight}</span>
+                    `;
+                    highlightsContainer.appendChild(item);
+                });
+
+                // Category button
+                document.getElementById('btn-category').href = 'category.html?cat=' + categoryId;
+
+                // Related Products (other products from same category)
+                const relatedContainer = document.getElementById('related-products');
+                const related = category.items.filter(item => item.id !== productId).slice(0, 4);
+                related.forEach((rp, index) => {
+                    const col = document.createElement('div');
+                    col.className = 'col-lg-3 col-md-6 col-sm-6 col-12';
+                    col.innerHTML = `
+                        <a href="product.html?cat=${categoryId}&product=${rp.id}" class="related-product-card">
+                            <div class="rp-image" style="background-color: ${rp.bgColor}">
+                                <img src="${rp.image}" alt="${rp.name}" class="img-fluid">
+                            </div>
+                            <div class="rp-content">
+                                <h6>${rp.name}</h6>
+                                <p>${rp.shortDesc}</p>
+                            </div>
+                        </a>
+                    `;
+                    relatedContainer.appendChild(col);
+                });
+            } else {
+                window.location.href = 'category.html?cat=' + categoryId;
+            }
+        } else {
+            window.location.href = 'index.html#categories';
+        }
+    </script>
+</body>
+
+</html>
