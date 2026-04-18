@@ -21,6 +21,7 @@
             position: relative;
             overflow: hidden;
         }
+
         .product-hero::before {
             content: "";
             position: absolute;
@@ -31,31 +32,38 @@
             opacity: 0.65;
             background-image: linear-gradient(140deg, #efd7ef 8%, #f5f9fc 39%, #f8eae1 66%, #eaf8f9 91%);
         }
+
         .product-hero .container {
             position: relative;
             z-index: 2;
         }
+
         .product-hero .breadcrumb-nav {
             font-size: 14px;
             margin-bottom: 30px;
+            padding-bottom: 20px;
         }
+
         .product-hero .breadcrumb-nav a {
             color: #683292;
             text-decoration: none;
             transition: color 0.3s;
         }
+
         .product-hero .breadcrumb-nav a:hover {
             color: #f83d8e;
         }
+
         .product-hero .breadcrumb-nav span {
             color: #646464;
         }
+
         /* Product Image Section */
         .product-image-wrapper {
             background: #fff;
             border-radius: 24px;
             padding: 40px;
-            box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
             position: relative;
             overflow: hidden;
             text-align: center;
@@ -64,6 +72,7 @@
             align-items: center;
             justify-content: center;
         }
+
         .product-image-wrapper::before {
             content: "";
             position: absolute;
@@ -76,10 +85,12 @@
             z-index: 0;
             transition: all 0.5s;
         }
+
         .product-image-wrapper:hover::before {
             width: 380px;
             height: 380px;
         }
+
         .product-image-wrapper img {
             max-height: 380px;
             max-width: 100%;
@@ -88,9 +99,11 @@
             z-index: 1;
             transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
+
         .product-image-wrapper:hover img {
             transform: scale(1.05) rotate(2deg);
         }
+
         .product-image-wrapper .zoom-hint {
             position: absolute;
             bottom: 15px;
@@ -99,10 +112,12 @@
             color: #aaa;
             z-index: 2;
         }
+
         /* Product Info */
         .product-info {
             padding-left: 30px;
         }
+
         .product-badge {
             display: inline-block;
             padding: 6px 18px;
@@ -114,12 +129,14 @@
             color: #fff;
             margin-bottom: 16px;
         }
+
         .product-info h1 {
             font-size: 52px;
             line-height: 56px;
             margin-bottom: 10px;
             color: #0f0200;
         }
+
         .product-info .product-category-link {
             font-size: 16px;
             color: #683292;
@@ -129,18 +146,22 @@
             margin-bottom: 20px;
             transition: color 0.3s;
         }
+
         .product-info .product-category-link:hover {
             color: #f83d8e;
         }
+
         .product-info .product-category-link i {
             margin-right: 6px;
         }
+
         .product-info .product-description {
             font-size: 18px;
             line-height: 30px;
             color: #646464;
             margin-bottom: 30px;
         }
+
         /* Highlights */
         .product-highlights {
             display: grid;
@@ -148,6 +169,7 @@
             gap: 12px;
             margin-bottom: 35px;
         }
+
         .highlight-item {
             display: flex;
             align-items: center;
@@ -157,10 +179,12 @@
             border-radius: 12px;
             transition: all 0.3s;
         }
+
         .highlight-item:hover {
             background: #f0e6f6;
             transform: translateX(4px);
         }
+
         .highlight-item .check-icon {
             width: 28px;
             height: 28px;
@@ -172,17 +196,20 @@
             color: #fff;
             font-size: 11px;
         }
+
         .highlight-item span {
             font-size: 14px;
             font-weight: 600;
             color: #0f0200;
         }
+
         /* Action Buttons */
         .product-actions {
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
         }
+
         .btn-primary-cc {
             display: inline-block;
             padding: 16px 36px;
@@ -199,11 +226,13 @@
             transition: all 0.4s;
             box-shadow: 0 4px 20px rgba(248, 61, 142, 0.3);
         }
+
         .btn-primary-cc:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 30px rgba(248, 61, 142, 0.4);
             color: #fff;
         }
+
         .btn-outline-cc {
             display: inline-block;
             padding: 14px 36px;
@@ -219,42 +248,50 @@
             cursor: pointer;
             transition: all 0.4s;
         }
+
         .btn-outline-cc:hover {
             background: #683292;
             color: #fff;
             transform: translateY(-2px);
         }
+
         /* Related Products */
         .related-products {
             padding: 80px 0 100px;
             background: #fff;
         }
+
         .related-products h2 {
             text-align: center;
             margin-bottom: 16px;
         }
+
         .related-products h2 span {
             color: #f83d8e;
         }
-        .related-products > .container > p {
+
+        .related-products>.container>p {
             text-align: center;
             margin-bottom: 50px;
             font-size: 18px;
         }
+
         .related-product-card {
             display: block;
             text-decoration: none;
             border-radius: 20px;
             overflow: hidden;
             background: #fff;
-            box-shadow: 0 4px 25px rgba(0,0,0,0.06);
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.06);
             transition: all 0.4s;
             margin-bottom: 30px;
         }
+
         .related-product-card:hover {
             transform: translateY(-6px);
             box-shadow: 0 10px 35px rgba(248, 61, 142, 0.12);
         }
+
         .related-product-card .rp-image {
             height: 200px;
             display: flex;
@@ -262,27 +299,33 @@
             justify-content: center;
             padding: 20px;
         }
+
         .related-product-card .rp-image img {
             max-height: 160px;
             object-fit: contain;
             transition: transform 0.4s;
         }
+
         .related-product-card:hover .rp-image img {
             transform: scale(1.08);
         }
+
         .related-product-card .rp-content {
             padding: 16px 20px 20px;
         }
+
         .related-product-card .rp-content h6 {
             font-size: 16px;
             margin-bottom: 4px;
         }
+
         .related-product-card .rp-content p {
             font-size: 13px;
             color: #646464;
             margin-bottom: 0;
             line-height: 20px;
         }
+
         /* Floating back */
         .back-floating {
             position: fixed;
@@ -301,38 +344,47 @@
             box-shadow: 0 4px 20px rgba(104, 50, 146, 0.4);
             transition: all 0.3s;
         }
+
         .back-floating:hover {
             background: #f83d8e;
             color: #fff;
             transform: scale(1.1);
         }
+
         /* Responsive */
         @media (max-width: 991px) {
             .product-info {
                 padding-left: 0;
                 margin-top: 40px;
             }
+
             .product-info h1 {
                 font-size: 40px;
                 line-height: 44px;
             }
         }
+
         @media (max-width: 576px) {
             .product-info h1 {
                 font-size: 32px;
                 line-height: 36px;
             }
+
             .product-highlights {
                 grid-template-columns: 1fr;
             }
+
             .product-image-wrapper {
                 min-height: 300px;
                 padding: 20px;
             }
+
             .product-actions {
                 flex-direction: column;
             }
-            .btn-primary-cc, .btn-outline-cc {
+
+            .btn-primary-cc,
+            .btn-outline-cc {
                 text-align: center;
             }
         }
@@ -343,15 +395,17 @@
     <!-- Back to top button -->
     <a id="button"></a>
     <!-- Header -->
-    <header class="header" style="position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);box-shadow:0 2px 20px rgba(0,0,0,0.08);">
+    <header class="header"
+        style="position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);box-shadow:0 2px 20px rgba(0,0,0,0.08);">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light p-0">
                 <a class="navbar-brand" href="index.html">
-                    <figure class="logo mb-0"><img src="assets/images/products/logo.png" alt="Craving Creams Logo" class="img-fluid"></figure>
+                    <figure class="logo mb-0"><img src="assets/images/products/logo.png" alt="Craving Creams Logo"
+                            class="img-fluid"></figure>
                 </a>
                 <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                     <span class="navbar-toggler-icon"></span>
                     <span class="navbar-toggler-icon"></span>
@@ -364,7 +418,8 @@
                         <li class="nav-item"><a class="nav-link" href="index.html#categories">Categories</a></li>
                     </ul>
                     <div class="last_list">
-                        <a class="text-decoration-none contact_us" href="javascript:void(0)">Contact Us<i class="fa-solid fa-arrow-right"></i></a>
+                        <a class="text-decoration-none contact_us" href="javascript:void(0)">Contact Us<i
+                                class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
             </nav>
@@ -431,7 +486,8 @@
                 <div class="row">
                     <div class="col-lg-2 col-md-12 col-sm-6 col-12 order-md-1 order-sm-1 order-1">
                         <a href="index.html">
-                            <figure class="footer-logo mb-0"><img class="img-fluid" src="assets/images/products/logo.png" alt="Craving Creams Logo"></figure>
+                            <figure class="footer-logo mb-0"><img class="img-fluid"
+                                    src="assets/images/products/logo.png" alt="Craving Creams Logo"></figure>
                         </a>
                     </div>
                     <div class="col-lg-3 col-md-4 col-sm-6 col-12 order-md-2 order-sm-4 order-2">
@@ -440,10 +496,12 @@
                             <div class="pages">
                                 <ul class="list-unstyled mb-0 list1">
                                     <li><i class="fas fa-circle"></i><a href="index.html">Home</a></li>
-                                    <li><i class="fas fa-circle"></i><a href="index.html#premium-collection">Premium</a></li>
+                                    <li><i class="fas fa-circle"></i><a href="index.html#premium-collection">Premium</a>
+                                    </li>
                                 </ul>
                                 <ul class="list-unstyled mb-0">
-                                    <li><i class="fas fa-circle"></i><a href="index.html#retail-collection">Retail</a></li>
+                                    <li><i class="fas fa-circle"></i><a href="index.html#retail-collection">Retail</a>
+                                    </li>
                                     <li><i class="fas fa-circle"></i><a href="javascript:void(0)">Contact</a></li>
                                 </ul>
                             </div>
@@ -456,14 +514,16 @@
                                     <i class="fa-solid fa-location-dot"></i>
                                     <div class="text">
                                         <span>Address:</span>
-                                        <a href="#" class="text-decoration-none address mb-0">Noida, Uttar Pradesh, 201301, India</a>
+                                        <a href="#" class="text-decoration-none address mb-0">Noida, Uttar Pradesh,
+                                            201301, India</a>
                                     </div>
                                 </li>
                                 <li>
                                     <i class="fas fa-envelope-open-text"></i>
                                     <div class="text">
                                         <span>Email:</span>
-                                        <a href="mailto:info@cravingcreams.com" class="text-decoration-none">info@cravingcreams.com</a>
+                                        <a href="mailto:info@cravingcreams.com"
+                                            class="text-decoration-none">info@cravingcreams.com</a>
                                     </div>
                                 </li>
                             </ul>
@@ -479,16 +539,19 @@
                                 </div>
                             </div>
                             <ul class="list-unstyled mb-0 social-icons">
-                                <li><a href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a></li>
-                                <li><a href="https://twitter.com/"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="https://www.instagram.com/"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a></li>
+                                <li><a href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f"
+                                            aria-hidden="true"></i></a></li>
+                                <li><a href="https://twitter.com/"><i class="fa-brands fa-x-twitter"
+                                            aria-hidden="true"></i></a></li>
+                                <li><a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"
+                                            aria-hidden="true"></i></a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="copyright">
-                <p class="mb-0">Copyright © 2025 Craving Creams. All rights reserved.</p>
+                <p class="mb-0">Copyright © <span id="cc-year"></span> Craving Creams. All rights reserved.</p>
             </div>
         </div>
     </section>
@@ -503,6 +566,9 @@
     <script src="assets/js/aos.js"></script>
     <script src="assets/js/back-to-top-button.js"></script>
     <script src="assets/js/product-data.js"></script>
+    <script>
+        document.getElementById('cc-year').textContent = new Date().getFullYear();
+    </script>
     <script>
         // Initialize AOS
         AOS.init({ duration: 800, once: true });
