@@ -174,7 +174,7 @@
 h1 {font-size: 100px; line-height: 98px;}
 h2 {font-size: 56px; line-height: 60px;}
 h3 {font-size: 36px; line-height: 36px;}
-.header {padding: 20px 0;}
+.header {padding: 10px 0;}
 .navbar-nav li {margin: 0 14px}
 .header .last_list a {margin: 0 10px;}
 .header .last_list .contact_us {margin: 0 0 0 15px;}
@@ -308,7 +308,7 @@ h3 {font-size: 36px; line-height: 36px;}
 .faq3-con .faq-rightimage {display: none;}
 /* Sub banner */
 .sub_banner_outer .navbar-nav .dropdown-menu {top: 68px;}
-.sub_banner {padding: 100px 0;}
+.sub_banner {padding: 80px 0 40px;}
 /* About Page */
 .journey-con {padding: 100px 0;}
 .journey-con .journey-rightimage {display: none;}
@@ -388,7 +388,7 @@ p {font-size: 18px; line-height: 24px;}
 .navbar-nav .nav-item a {font-size: 14px !important; line-height: 14px !important;}
 .navbar-collapse .navbar-nav {margin: 0 255px 0 60px !important;}
 .header .last_list a {margin: 0 8px;}
-.header .last_list .contact_us {font-size: 15px; line-height: 15px; min-width: 154px; height: 48px; padding: 17px; margin: 0 0 0 14px;}
+.header .last_list .contact_us {font-size: 13px; line-height: 13px; min-width: 140px; height: 40px; padding: 14px; margin: 0 0 0 14px;}
 .banner-con .banner_content {padding: 60px 0 200px;}
 .banner-con .banner_content h3 {width: 320px; padding-left: 60px; margin-bottom: 12px;}
 .banner-con .banner_content h3::before {width: 52px; height: 2px;}
@@ -593,8 +593,8 @@ p {font-size: 18px; line-height: 24px;}
 .testimonial3-con .owl-carousel .owl-dots .owl-dot span {width: 11px; height: 11px; margin: 0 4px;}
 .testimonial3-con .owl-carousel .owl-dots .owl-dot.active span {width: 16px; height: 16px; top: 2px;}
 /* Sub banner */
-.sub_banner {padding: 90px 0;}
-.sub_banner .sub_banner_content h1 {font-size: 66px; line-height: 66px; margin-bottom: 30px;}
+.sub_banner {padding: 70px 0 35px;}
+.sub_banner .sub_banner_content h1 {font-size: 36px; line-height: 42px; margin-bottom: 6px;}
 /* About Page */
 .journey-con {padding: 80px 0;}
 .journey-con .journey_content {padding: 0;}
@@ -980,12 +980,12 @@ button:focus {outline: none;}
 .testimonial3-con .owl-carousel .owl-dots .owl-dot span {width: 10px; height: 10px; margin: 0 3px;}
 .testimonial3-con .owl-carousel .owl-dots .owl-dot.active span {width: 15px; height: 15px;}
 /* Sub banner */
-.sub_banner_outer .header {padding: 15px 0;}
+.sub_banner_outer .header {padding: 10px 0;}
 .sub_banner_outer .navbar-collapse {top: 85px;}
-.sub_banner {padding: 70px 0;}
-.sub_banner .sub_banner_content h1 {font-size: 60px; line-height: 60px;}
-.sub_banner .sub_banner_content .box {padding: 12px 20px;}
-.sub_banner .sub_banner_content .box span {font-size: 16px; line-height: 16px;}
+.sub_banner {padding: 60px 0 30px;}
+.sub_banner .sub_banner_content h1 {font-size: 32px; line-height: 38px;}
+.sub_banner .sub_banner_content .box {padding: 8px 20px;}
+.sub_banner .sub_banner_content .box span {font-size: 13px; line-height: 13px;}
 /* About Page */
 .journey-con {padding: 60px 0;}
 .journey-con .journey_content {text-align: center;}
@@ -1326,13 +1326,13 @@ p {font-size: 14px; line-height: 20px;}
 .testimonial3-con .testimonial-box .testimonial-quoteimage {margin-bottom: 12px;}
 .testimonial3-con .owl-carousel .owl-dots {margin-top: 15px !important;}
 /* Sub banner */
-.sub_banner_outer .header {padding: 10px 0;}
+.sub_banner_outer .header {padding: 8px 0;}
 .sub_banner_outer .navbar-collapse {top: 72px;}
-.sub_banner {padding: 60px 0;}
-.sub_banner .sub_banner_content h1 {font-size: 44px; line-height: 44px; margin-bottom: 26px;}
-.sub_banner .sub_banner_content .box {padding: 8px 25px 10px;}
-.sub_banner .sub_banner_content .box span {font-size: 14px; line-height: 14px;}
-.sub_banner .sub_banner_content .box .slash {margin: 0 10px;}
+.sub_banner {padding: 50px 0 25px;}
+.sub_banner .sub_banner_content h1 {font-size: 28px; line-height: 34px; margin-bottom: 6px;}
+.sub_banner .sub_banner_content .box {padding: 7px 18px;}
+.sub_banner .sub_banner_content .box span {font-size: 12px; line-height: 12px;}
+.sub_banner .sub_banner_content .box .slash {margin: 0 8px;}
 /* About Page */
 .journey-con {padding: 40px 0;}
 .journey-con .journey_content h2 {margin-bottom: 14px;}

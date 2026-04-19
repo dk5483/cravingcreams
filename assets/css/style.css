@@ -171,12 +171,12 @@ html{
 /* Home Page */
 
 .header {
-    padding: 22px 0px;
+    padding: 12px 0px;
     position: relative;
     z-index: 5;
 }
 .header .logo img {
-    width: 185px;
+    width: 140px;
 }
 .navbar-collapse .navbar-nav{
     text-align: center;
@@ -334,13 +334,13 @@ html{
     transition: all 0.3s ease-in-out;
 }
 .header .last_list .contact_us{
-    font-size: 16px;
-    line-height: 16px;
+    font-size: 14px;
+    line-height: 14px;
     font-weight: 700;
-    min-width: 168px;
-    height: 52px;
-    padding: 18px;
-    margin: 0 0 0 36px;
+    min-width: 148px;
+    height: 42px;
+    padding: 14px;
+    margin: 0 0 0 28px;
     border-radius: 30px;
     position: relative;
     text-align: center;
@@ -2636,7 +2636,7 @@ html{
     top: 70px;
 }
 .sub_banner {
-    padding: 150px 0;
+    padding: 90px 0 50px;
 }
 .sub_banner::before {
     content: "";
@@ -2651,24 +2651,35 @@ html{
     background-image: linear-gradient(140deg, var(--e-global-color-gradient-1) 8%, var(--e-global-color-gradient-2) 40%, var(--e-global-color-gradient-3) 66%, var(--e-global-color-gradient-4) 91%);
 }
 .sub_banner .sub_banner_content h1 {
-    font-size: 80px;
-    line-height: 80px;
-    margin-bottom: 35px;
+    font-size: 42px;
+    line-height: 48px;
+    margin-bottom: 8px;
     color: var(--e-global-color-secondary);
+    letter-spacing: 0.5px;
+}
+.sub_banner .sub_banner_content h1::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #683292, #f83d8e);
+    margin: 14px auto 0;
 }
 .sub_banner .sub_banner_content .box {
-    padding: 14px 35px;
+    padding: 10px 26px;
     text-align: center;
     border-radius: 35px;
     display: inline-block;
-    background: var(--e-global-color-white);
-    box-shadow: 0 2px 73px 2px rgb(0 0 0 / 5%);
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 2px 20px 0 rgb(0 0 0 / 4%);
     transition: all 0.3s ease-in-out;
 }
 .sub_banner .sub_banner_content .box span {
-    font-size: 18px;
-    line-height: 18px;
-    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 500;
     display: inline-block;
     color: var(--e-global-color-secondary);
     transition: all 0.3s ease-in-out;
@@ -2680,7 +2691,7 @@ html{
     color: var(--e-global-color-text);
 }
 .sub_banner .sub_banner_content .box .slash {
-    margin: 0 13px;
+    margin: 0 10px;
 }
 .sub_banner .sub_banner_content .box .cart span {
     color: var(--e-global-color-secondary);
