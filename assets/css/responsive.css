@@ -483,7 +483,7 @@ p {font-size: 18px; line-height: 24px;}
 .follow-con .circle1,
 .follow-con .circle2 {display: none;}
 .footer-con .footer-image {display: none;}
-.footer-con .middle_portion .pages .list1 {padding-right: 35px;}
+.footer-con .middle_portion .pages .list1 {padding-right: 20px;}
 .footer-con .middle_portion {padding: 65px 0;}
 .footer-con .middle_portion .info i {font-size: 15px; height: 42px; width: 42px; line-height: 42px;}
 .footer-con .middle_portion .info .text {padding: 0 0 0 60px;}
@@ -1526,7 +1526,7 @@ h3 {font-size: 20px; line-height: 20px;}
 .footer-con .middle_portion {width: 330px; margin: 0 auto; text-align: center;}
 .footer-con .middle_portion .footer-logo {text-align: center; margin-bottom: 20px !important;}
 .footer-con .middle_portion .links {margin-bottom: 20px;}
-.footer-con .middle_portion .links .pages {width: 166px; margin: 0 auto; text-align: left;}
+.footer-con .middle_portion .links .pages {width: 250px; margin: 0 auto; text-align: left;}
 .footer-con .middle_portion .info {margin-bottom: 20px;}
 .footer-con .middle_portion .info li {display: block; margin-bottom: 12px;}
 .footer-con .middle_portion .info i,
