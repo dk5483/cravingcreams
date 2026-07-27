@@ -75,18 +75,34 @@
             display: block;
         }
 
-        /* Category cards with overlay gradient */
-        .categories-con .categories-box .content h5 {
-            font-size: 18px;
-            line-height: 22px;
+        /* Improved product image sizing for product cards */
+        .classic-con .classic-box .classic_image_box,
+        .seller-con .seller-box .seller_image_box {
+            background: linear-gradient(145deg, #ffffff, #fff7fe);
+            border-radius: 20px;
+            padding: 16px;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 10px 24px rgba(104, 50, 146, 0.08);
         }
 
-        /* Improved product image sizing for product cards */
+        .classic-con .classic-box .classic_image_box figure,
+        .seller-con .seller-box .seller_image_box figure {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 180px;
+            overflow: hidden;
+            border-radius: 14px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(248,61,142,0.05));
+        }
+
         .classic-con .classic-box .classic_image_box figure img,
         .seller-con .seller-box .seller_image_box figure img {
             max-height: 180px;
             width: auto;
             object-fit: contain;
+            filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.08)) saturate(1.04) contrast(1.03);
+            transform: translateZ(0);
         }
 
         /* Section divider */
@@ -125,6 +141,63 @@
             color: #f83d8e;
         }
 
+        .category-group-card {
+            position: relative;
+            border-radius: 30px;
+            padding: 28px 24px 20px;
+            margin-top: 22px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(250,240,247,0.97));
+            border: 1px solid rgba(104, 50, 146, 0.13);
+            box-shadow: 0 16px 40px rgba(104, 50, 146, 0.08);
+            overflow: hidden;
+        }
+
+        .category-group-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, rgba(248, 61, 142, 0.05), rgba(104, 50, 146, 0.05));
+            pointer-events: none;
+            border-radius: inherit;
+        }
+
+        .group-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1.6px;
+            text-transform: uppercase;
+            color: #ffffff;
+            background: linear-gradient(135deg, #683292, #f83d8e);
+            margin-bottom: 14px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .group-title {
+            font-size: 28px;
+            line-height: 34px;
+            font-weight: 700;
+            color: #2f153d;
+            margin-bottom: 6px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .group-subtitle {
+            font-size: 15px;
+            line-height: 24px;
+            color: #6d6074;
+            max-width: 620px;
+            margin-bottom: 18px;
+            position: relative;
+            z-index: 1;
+        }
+
         .category-img-box {
             width: 200px;
             height: 200px;
@@ -132,10 +205,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #fff;
-            border-radius: 16px;
+            background: linear-gradient(145deg, #ffffff, #fff7fe);
+            border-radius: 18px;
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(104, 50, 146, 0.07);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 10px 24px rgba(104, 50, 146, 0.08);
+            padding: 14px;
         }
 
         .category-img-box img {
@@ -143,6 +217,356 @@
             max-height: 100%;
             object-fit: contain;
             display: block;
+            filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.08)) saturate(1.04) contrast(1.03);
+        }
+
+        .categories-box {
+            background: rgba(255,255,255,0.95);
+            border: 1px solid rgba(104, 50, 146, 0.08);
+            border-radius: 22px;
+            padding: 12px;
+            box-shadow: 0 12px 24px rgba(104, 50, 146, 0.06);
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            max-width: 100%;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .categories-box .content {
+            border-radius: 16px;
+            padding: 14px 16px;
+            margin: 12px 0 0;
+            background: linear-gradient(90deg, #fff8fe, #ffffff);
+            border: 1px solid rgba(104, 50, 146, 0.06);
+            overflow: hidden;
+            position: static !important;
+            width: auto !important;
+            height: auto !important;
+            left: auto !important;
+            bottom: auto !important;
+            display: block;
+            z-index: 1;
+        }
+
+        .categories-box::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            pointer-events: none;
+            box-shadow: inset 0 0 0 3px rgba(248,61,142,0);
+            transition: box-shadow 0.25s ease;
+            z-index: 3;
+        }
+
+        .categories-box:hover {
+            z-index: 99;
+            transform: translateY(-2px);
+            box-shadow: 0 18px 35px rgba(104, 50, 146, 0.12);
+        }
+
+        .categories-box:hover::after {
+            box-shadow: inset 0 0 0 3px rgba(248,61,142,0.22);
+        }
+
+        .category-img-box:hover {
+            transform: translateY(0);
+            box-shadow: 0 10px 20px rgba(104, 50, 146, 0.08);
+        }
+
+        .category-group-card,
+        .categories_wrapper .row {
+            overflow: visible;
+        }
+
+        @media (hover: none), (pointer: coarse) {
+            .categories-box:hover,
+            .category-img-box:hover {
+                transform: none;
+                box-shadow: 0 12px 24px rgba(104, 50, 146, 0.08);
+            }
+        }
+
+        @media screen and (max-width: 991px) {
+            .categories-con .categories_wrapper {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding: 0 15px;
+            }
+
+            .categories-con .categories-box {
+                width: 100% !important;
+                margin: 0 auto 22px !important;
+                min-width: 0;
+                box-sizing: border-box;
+            }
+
+            .categories-con .categories-box .content {
+                margin: 0 10px 14px;
+                padding: 12px;
+                width: auto !important;
+                height: auto !important;
+            }
+
+            .categories-con .categories-box .category-img-box {
+                width: 100% !important;
+                min-height: 240px !important;
+                padding: 14px !important;
+            }
+
+            .categories-con .category-img-box img {
+                max-width: 100% !important;
+                width: 100% !important;
+                height: auto !important;
+            }
+        }
+
+        @media screen and (max-width: 767px) {
+            .categories-con .categories_wrapper {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding: 0 12px;
+            }
+
+            .categories-con .categories-box {
+                width: 100% !important;
+                margin: 0 auto 20px !important;
+                min-width: 0;
+                box-sizing: border-box;
+            }
+
+            .categories-con .categories-box .content {
+                margin: 0 8px 12px;
+                padding: 12px;
+                width: auto !important;
+                height: auto !important;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .categories-con .categories-box .category-img-box {
+                width: 100% !important;
+                min-height: 220px !important;
+                padding: 12px !important;
+            }
+
+            .categories-con .category-img-box img {
+                max-width: 100% !important;
+                width: 100% !important;
+                height: auto !important;
+            }
+        }
+
+        /* Enhanced motion effects */
+        @keyframes floatSoft {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes drift {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(8px, -10px, 0); }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 0 rgba(104, 50, 146, 0); }
+            50% { box-shadow: 0 0 18px rgba(248, 61, 142, 0.18); }
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes textShine {
+            to { background-position: 200% center; }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        .all_button,
+        .contact_us,
+        .classic-box,
+        .seller-box,
+        .categories-box,
+        .testimonial_content,
+        .category-img-box,
+        .special_wrapper,
+        .banner-image img,
+        .relive-image img,
+        .special-image img,
+        .follow-con li {
+            transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
+        }
+
+        .all_button {
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(104, 50, 146, 0.15);
+        }
+
+        .all_button::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .all_button:hover::after {
+            transform: translateX(100%);
+        }
+
+        .all_button:hover,
+        .contact_us:hover {
+            transform: translateY(-3px) scale(1.01);
+            box-shadow: 0 12px 25px rgba(104, 50, 146, 0.2);
+        }
+
+        .classic-box:hover,
+        .seller-box:hover,
+        .categories-box:hover,
+        .testimonial_content:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 35px rgba(104, 50, 146, 0.14);
+        }
+
+        .category-img-box:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(104, 50, 146, 0.10);
+        }
+
+        .classic-box:hover .classic_image_box img,
+        .seller-box:hover .seller_image_box img,
+        .categories-box:hover .category-img-box img {
+            transform: scale(1.06);
+        }
+
+        .banner-image img,
+        .relive-image img,
+        .special-image img {
+            animation: floatSoft 4.5s ease-in-out infinite;
+            border-radius: 24px;
+            box-shadow: 0 20px 45px rgba(104, 50, 146, 0.16);
+            background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(248,61,142,0.06));
+            padding: 8px;
+        }
+
+        .banner-lefttopimage img,
+        .relive-rightbottomimage img,
+        .classic-leftimage img,
+        .classic-rightimage img,
+        .special-rightimage img,
+        .special-triangle img,
+        .special-doted img,
+        .relive-circle img,
+        .relive-doted img,
+        .relive-triangle img {
+            animation: drift 6s ease-in-out infinite alternate;
+        }
+
+        .circle-text {
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+
+        .premium-badge,
+        .retail-badge {
+            animation: pulseGlow 2.6s ease-in-out infinite;
+        }
+
+        .follow-con li:nth-child(2n) {
+            animation-delay: 0.4s;
+        }
+
+        .follow-con li:nth-child(3n) {
+            animation-delay: 0.8s;
+        }
+
+        .follow-con li {
+            animation: floatSoft 3.5s ease-in-out infinite;
+        }
+
+        .banner_content h1 span,
+        .relive_content h2 span,
+        .classic_content h2 span,
+        .seller_content h2 span,
+        .categories_content h2 span,
+        .testimonial_content_box h2 span,
+        .update_content h2 span,
+        .follow_content h2 span {
+            background: linear-gradient(90deg, #683292, #f83d8e, #fbab2a, #683292);
+            background-size: 200% auto;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textShine 4s linear infinite;
+        }
+
+        .reveal-section {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .special-con {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #683292 0%, #e73b92 45%, #f7d5e7 100%);
+            animation: gradientShift 12s ease infinite;
+            background-size: 200% 200%;
+        }
+
+        /* Darken left side so white text reads clearly */
+        .special-con::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 56%;
+            background: linear-gradient(90deg, rgba(104,50,146,0.98) 0%, rgba(248,61,142,0.78) 40%, rgba(247,213,231,0.18) 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .special-con .container,
+        .special-con .row {
+            position: relative;
+            z-index: 2;
+        }
+
+        .special-con .special_content {
+            color: #fff;
+            text-shadow: 0 6px 22px rgba(0,0,0,0.48);
+        }
+
+        .special-con .special_content h2,
+        .special-con .special_content p,
+        .special-con .special_content .button span {
+            color: #fff !important;
+        }
+
+        .special-con .special_wrapper {
+            z-index: 2;
         }
     </style>
 </head>
@@ -179,9 +603,6 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#categories">Categories</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="javascript:void(0)">About Us</a>
                             </li>
                         </ul>
                         <div class="last_list">
@@ -272,7 +693,7 @@
                     </div>
                 </div>
             </div>
-            <div class="classic_wrapper" data-aos="fade-up">
+                    <div class="classic_wrapper" data-aos="fade-up">
                 <div class="row">
                     <div class="col-12">
                         <div class="owl-carousel owl-theme">
@@ -280,10 +701,7 @@
                             <div class="item">
                                 <div class="classic-box">
                                     <div class="classic_image_box box1">
-                                        <figure class="mb-0">
-                                            <img src="./assets/images/products/premium/cups/vanilla 125ml zomato.png"
-                                                alt="Vanilla Cup" class="img-fluid">
-                                        </figure>
+                                        <figure class="mb-0"><img src="./assets/images/products/premium/cups/vanilla 125ml zomato.png" alt="Vanilla Cup" class="img-fluid"></figure>
                                     </div>
                                     <div class="classic_box_content">
                                         <span class="product-category-label">125 mL Cup</span>
@@ -292,74 +710,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="item">
-                                <div class="classic-box">
-                                    <div class="classic_image_box box2">
-                                        <figure class="mb-0">
-                                            <img src="./assets/images/products/premium/cups/chocolate 125 ml zomato.png"
-                                                alt="Chocolate Cup" class="img-fluid">
-                                        </figure>
-                                    </div>
-                                    <div class="classic_box_content">
-                                        <span class="product-category-label">125 mL Cup</span>
-                                        <h6>Chocolate</h6>
-                                        <p class="text-size-16">Rich, indulgent chocolate in a 125mL cup.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="classic-box">
-                                    <div class="classic_image_box box3">
-                                        <figure class="mb-0">
-                                            <img src="./assets/images/products/premium/cups/mango 125ml zomato.png"
-                                                alt="Mango Cup" class="img-fluid">
-                                        </figure>
-                                    </div>
-                                    <div class="classic_box_content">
-                                        <span class="product-category-label">125 mL Cup</span>
-                                        <h6>Mango</h6>
-                                        <p class="text-size-16">Tropical mango goodness in every spoonful.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="classic-box">
-                                    <div class="classic_image_box box4">
-                                        <figure class="mb-0">
-                                            <img src="./assets/images/products/premium/cups/starwberry 125 ml zomato.png"
-                                                alt="Strawberry Cup" class="img-fluid">
-                                        </figure>
-                                    </div>
-                                    <div class="classic_box_content">
-                                        <span class="product-category-label">125 mL Cup</span>
-                                        <h6>Strawberry</h6>
-                                        <p class="text-size-16">Luscious strawberry cream in a 125mL cup.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="classic-box">
-                                    <div class="classic_image_box box1">
-                                        <figure class="mb-0">
-                                            <img src="./assets/images/products/premium/cups/caremal 125 ml zomato.png"
-                                                alt="Caramel Cup" class="img-fluid">
-                                        </figure>
-                                    </div>
-                                    <div class="classic_box_content">
-                                        <span class="product-category-label">125 mL Cup</span>
-                                        <h6>Caramel</h6>
-                                        <p class="text-size-16">Buttery caramel swirls in a 125mL cup.</p>
-                                    </div>
-                                </div>
-                            </div>
+
                             <!-- 500ml Tubs -->
                             <div class="item">
                                 <div class="classic-box">
                                     <div class="classic_image_box box2">
-                                        <figure class="mb-0">
-                                            <img src="./assets/images/products/premium/tubs/vanilla 500 ml cup upscale FINAL.png"
-                                                alt="Vanilla Tub" class="img-fluid">
-                                        </figure>
+                                        <figure class="mb-0"><img src="./assets/images/products/premium/tubs/vanilla 500 ml cup upscale FINAL.png" alt="Vanilla Tub" class="img-fluid"></figure>
                                     </div>
                                     <div class="classic_box_content">
                                         <span class="product-category-label">500 mL Tub</span>
@@ -368,44 +724,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="item">
-                                <div class="classic-box">
-                                    <div class="classic_image_box box3">
-                                        <figure class="mb-0">
-                                            <img src="./assets/images/products/premium/tubs/chocolate Final.png"
-                                                alt="Chocolate Tub" class="img-fluid">
-                                        </figure>
-                                    </div>
-                                    <div class="classic_box_content">
-                                        <span class="product-category-label">500 mL Tub</span>
-                                        <h6>Chocolate Tub</h6>
-                                        <p class="text-size-16">Decadent chocolate in a 500mL tub to share.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="classic-box">
-                                    <div class="classic_image_box box4">
-                                        <figure class="mb-0">
-                                            <img src="./assets/images/products/premium/tubs/Strawberry Final.png"
-                                                alt="Strawberry Tub" class="img-fluid">
-                                        </figure>
-                                    </div>
-                                    <div class="classic_box_content">
-                                        <span class="product-category-label">500 mL Tub</span>
-                                        <h6>Strawberry Tub</h6>
-                                        <p class="text-size-16">Fresh strawberry in a 500mL family tub.</p>
-                                    </div>
-                                </div>
-                            </div>
+
                             <!-- Cake Jars -->
                             <div class="item">
                                 <div class="classic-box">
                                     <div class="classic_image_box box1">
-                                        <figure class="mb-0">
-                                            <img src="./assets/images/products/premium/cake-jars/Biscoff With logo.png"
-                                                alt="Biscoff Cake Jar" class="img-fluid">
-                                        </figure>
+                                        <figure class="mb-0"><img src="./assets/images/products/premium/cake-jars/Biscoff With logo.png" alt="Biscoff Cake Jar" class="img-fluid"></figure>
                                     </div>
                                     <div class="classic_box_content">
                                         <span class="product-category-label">Cake Jar</span>
@@ -414,124 +738,17 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="item">
-                                <div class="classic-box">
-                                    <div class="classic_image_box box2">
-                                        <figure class="mb-0">
-                                            <img src="./assets/images/products/premium/cake-jars/CHOCOLATE with logo.png"
-                                                alt="Chocolate Cake Jar" class="img-fluid">
-                                        </figure>
-                                    </div>
-                                    <div class="classic_box_content">
-                                        <span class="product-category-label">Cake Jar</span>
-                                        <h6>Chocolate Cake Jar</h6>
-                                        <p class="text-size-16">Rich chocolate ice cream cake in a jar.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="classic-box">
-                                    <div class="classic_image_box box3">
-                                        <figure class="mb-0">
-                                            <img src="./assets/images/products/premium/cake-jars/Kunafa WITH LOGO.png"
-                                                alt="Kunafa Cake Jar" class="img-fluid">
-                                        </figure>
-                                    </div>
-                                    <div class="classic_box_content">
-                                        <span class="product-category-label">Cake Jar</span>
-                                        <h6>Kunafa Cake Jar</h6>
-                                        <p class="text-size-16">Exotic kunafa-flavored ice cream cake jar.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="classic-box">
-                                    <div class="classic_image_box box4">
-                                        <figure class="mb-0">
-                                            <img src="./assets/images/products/premium/cake-jars/Red velvet with logo.png"
-                                                alt="Red Velvet Cake Jar" class="img-fluid">
-                                        </figure>
-                                    </div>
-                                    <div class="classic_box_content">
-                                        <span class="product-category-label">Cake Jar</span>
-                                        <h6>Red Velvet Cake Jar</h6>
-                                        <p class="text-size-16">Velvety red velvet ice cream cake jar.</p>
-                                    </div>
-                                </div>
-                            </div>
+
                             <!-- Shakes -->
                             <div class="item">
                                 <div class="classic-box">
                                     <div class="classic_image_box box1">
-                                        <figure class="mb-0">
-                                            <img src="./assets/images/products/premium/shakes/Biscoff.png"
-                                                alt="Biscoff Shake" class="img-fluid">
-                                        </figure>
+                                        <figure class="mb-0"><img src="./assets/images/products/premium/shakes/Biscoff.png" alt="Biscoff Shake" class="img-fluid"></figure>
                                     </div>
                                     <div class="classic_box_content">
                                         <span class="product-category-label">Shake</span>
                                         <h6>Biscoff Shake</h6>
                                         <p class="text-size-16">Creamy Biscoff ice cream shake perfection.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="classic-box">
-                                    <div class="classic_image_box box2">
-                                        <figure class="mb-0">
-                                            <img src="./assets/images/products/premium/shakes/Chocolate ice cream shake with logo.png"
-                                                alt="Chocolate Shake" class="img-fluid">
-                                        </figure>
-                                    </div>
-                                    <div class="classic_box_content">
-                                        <span class="product-category-label">Shake</span>
-                                        <h6>Chocolate Shake</h6>
-                                        <p class="text-size-16">Thick and creamy chocolate ice cream shake.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="classic-box">
-                                    <div class="classic_image_box box3">
-                                        <figure class="mb-0">
-                                            <img src="./assets/images/products/premium/shakes/Oreoshake.png"
-                                                alt="Oreo Shake" class="img-fluid">
-                                        </figure>
-                                    </div>
-                                    <div class="classic_box_content">
-                                        <span class="product-category-label">Shake</span>
-                                        <h6>Oreo Shake</h6>
-                                        <p class="text-size-16">Oreo cookie-loaded ice cream shake bliss.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="classic-box">
-                                    <div class="classic_image_box box4">
-                                        <figure class="mb-0">
-                                            <img src="./assets/images/products/premium/shakes/RedVelvet.png"
-                                                alt="Red Velvet Shake" class="img-fluid">
-                                        </figure>
-                                    </div>
-                                    <div class="classic_box_content">
-                                        <span class="product-category-label">Shake</span>
-                                        <h6>Red Velvet Shake</h6>
-                                        <p class="text-size-16">Luxurious red velvet ice cream shake.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="classic-box">
-                                    <div class="classic_image_box box1">
-                                        <figure class="mb-0">
-                                            <img src="./assets/images/products/premium/shakes/cold COFFEE With Logo.png"
-                                                alt="Cold Coffee Shake" class="img-fluid">
-                                        </figure>
-                                    </div>
-                                    <div class="classic_box_content">
-                                        <span class="product-category-label">Shake</span>
-                                        <h6>Cold Coffee Shake</h6>
-                                        <p class="text-size-16">Refreshing cold coffee ice cream shake.</p>
                                     </div>
                                 </div>
                             </div>
@@ -553,11 +770,12 @@
                 </div>
             </div>
             <!-- Premium Categories -->
-            <div class="category-type-heading" data-aos="fade-up">
-                <i class="fa-solid fa-crown"></i> Premium Categories
-            </div>
-            <div class="categories_wrapper" data-aos="fade-up">
-                <div class="row">
+            <div class="category-group-card premium-group-card" data-aos="fade-up">
+                <div class="group-badge"><i class="fa-solid fa-crown"></i> Premium Categories</div>
+                <div class="group-title">Premium Collections</div>
+                <p class="group-subtitle">Rich tubs, indulgent cups, and signature cake jars built for celebrations.</p>
+                <div class="categories_wrapper">
+                    <div class="row">
                     <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                         <div class="categories-box">
                             <div class="category-img-box">
@@ -607,14 +825,16 @@
                             </div>
                         </div>
                     </div>
+                    </div>
                 </div>
             </div>
             <!-- Retail Categories -->
-            <div class="category-type-heading" data-aos="fade-up" style="margin-top: 50px;">
-                <i class="fa-solid fa-ice-cream"></i> Retail Categories
-            </div>
-            <div class="categories_wrapper" data-aos="fade-up">
-                <div class="row">
+            <div class="category-group-card" data-aos="fade-up" style="margin-top: 32px;">
+                <div class="group-badge"><i class="fa-solid fa-ice-cream"></i> Retail Categories</div>
+                <div class="group-title">Retail Favorites</div>
+                <p class="group-subtitle">Everyday treats with playful flavors, crisp cones, and nostalgic classics.</p>
+                <div class="categories_wrapper">
+                    <div class="row">
                     <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                         <div class="categories-box">
                             <div class="category-img-box">
@@ -1357,6 +1577,26 @@
         };
 
         $(document).ready(function () {
+            if ('IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12 });
+
+                document.querySelectorAll('.relive-con, .classic-con, .categories-con, .special-con, .seller-con, .testimonial-con, .update-con, .follow-con').forEach((section) => {
+                    section.classList.add('reveal-section');
+                    revealObserver.observe(section);
+                });
+            } else {
+                document.querySelectorAll('.relive-con, .classic-con, .categories-con, .special-con, .seller-con, .testimonial-con, .update-con, .follow-con').forEach((section) => {
+                    section.classList.add('is-visible');
+                });
+            }
+
             // Make premium carousel items clickable
             $('.classic-con .classic-box').each(function () {
                 var name = $(this).find('h6').text().trim();

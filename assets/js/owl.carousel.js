@@ -201,6 +201,7 @@
 		merge: false,
 		mergeFit: true,
 		autoWidth: false,
+		fixedItemWidth: false,
 
 		startPosition: 0,
 		rtl: false,
@@ -391,11 +392,11 @@
 
 			if (grid && cache.items.merge) {
 				while (iterator--) {
-					cache.css.width = this._widths[this.relative(iterator)];
+					cache.css.width = this.settings.fixedItemWidth || this._widths[this.relative(iterator)];
 					items.eq(iterator).css(cache.css);
 				}
 			} else if (grid) {
-				cache.css.width = cache.items.width;
+				cache.css.width = this.settings.fixedItemWidth || cache.items.width;
 				items.css(cache.css);
 			}
 		}
@@ -462,7 +463,8 @@
 		this.$stage = $('<' + this.settings.stageElement + '>', {
 			"class": this.settings.stageClass
 		}).wrap( $( '<div/>', {
-			"class": this.settings.stageOuterClass
+			"class": this.settings.stageOuterClass,
+			"style": "padding: 15px 10px;"
 		}));
 
 		// append stage
