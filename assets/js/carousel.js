@@ -3,7 +3,7 @@
 $(document).ready(function () {
     var owl = $('.classic-con .owl-carousel');
     owl.owlCarousel({
-        margin: 30,
+        margin: 15,
         nav: false,
         loop: true,
         dots: true,
@@ -32,7 +32,7 @@ $(document).ready(function () {
 $(document).ready(function () {
     var owl = $('.seller-con .owl-carousel');
     owl.owlCarousel({
-        margin: 30,
+        margin: 15,
         nav: false,
         loop: true,
         dots: true,
@@ -61,7 +61,7 @@ $(document).ready(function () {
 $(document).ready(function () {
     var owl = $('.testimonial-con .owl-carousel');
     owl.owlCarousel({
-        margin: 30,
+        margin: 15,
         nav: false,
         loop: true,
         dots: true,
@@ -115,7 +115,7 @@ $(document).ready(function () {
 $(document).ready(function () {
     var owl = $('.best-con .owl-carousel');
     owl.owlCarousel({
-        margin: 30,
+        margin: 15,
         nav: true,
         loop: true,
         dots: false,
@@ -143,7 +143,7 @@ $(document).ready(function () {
 $(document).ready(function () {
     var owl = $('.popular-con .owl-carousel');
     owl.owlCarousel({
-        margin: 30,
+        margin: 15,
         nav: true,
         loop: true,
         dots: false,
@@ -172,7 +172,7 @@ $(document).ready(function () {
 $(document).ready(function () {
     var owl = $('.testimonial3-con .owl-carousel');
     owl.owlCarousel({
-        margin: 30,
+        margin: 15,
         nav: false,
         loop: true,
         dots: true,
@@ -200,7 +200,7 @@ $(document).ready(function () {
 $(document).ready(function () {
     var owl = $('.team-con .owl-carousel');
     owl.owlCarousel({
-        margin: 30,
+        margin: 15,
         nav: true,
         loop: true,
         dots: false,
