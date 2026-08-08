@@ -69,9 +69,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="index.html#categories">Categories</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">About Us</a>
-                        </li>
                     </ul>
                     <div class="last_list">
                         <a class="text-decoration-none contact_us" href="contact.html">Contact Us<i
@@ -112,7 +109,40 @@
                 </div>
             </div>
         </div>
+        <div class="row mb-4 d-flex justify-content-center">
+            <div class="col-lg-8">
+                <div class="contact_form">
+                    <!-- Success/Error message -->
+                    <div id="form_result"></div>
+                    <form id="contactpage" method="post" class="position-relative">
+                        <div class="form-group input1 float-left">
+                            <label for="fname">First Name</label>
+                            <input type="text" class="form_style" name="fname" id="fname">
+                        </div>
+                        <div class="form-group float-left">
+                            <label for="lname">Last Name</label>
+                            <input type="text" class="form_style" name="lname" id="lname">
+                        </div>
+                        <div class="form-group input1 float-left">
+                            <label for="email">Email address</label>
+                            <input type="email" class="form_style" name="email" id="email">
+                        </div>
+                        <div class="form-group float-left">
+                            <label for="phone">Phone</label>
+                            <input type="tel" class="form_style" name="phone" id="phone">
+                        </div>
+                        <div class="form-group message">
+                            <label for="message">Message</label>
+                            <textarea class="form_style" rows="3" name="message" id="message"></textarea>
+                        </div>
+                        <button type="submit" id="submit" class="submit_now text-decoration-none">Submit Now<i
+                                class="fa-solid fa-arrow-right"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
         <div class="row">
+            
             <div class="col-lg-12">
                 <div class="contact_info">
                     <div class="row">
@@ -156,33 +186,7 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="col-lg-8">
-                <div class="contact_form">
-                    <form id="contactpage" method="post" class="position-relative">
-                        <div class="form-group input1 float-left">
-                            <label for="fname">First Name</label>
-                            <input type="text" class="form_style" name="fname" id="fname">
-                        </div>
-                        <div class="form-group float-left">
-                            <label for="lname">Last Name</label>
-                            <input type="text" class="form_style" name="lname" id="lname">
-                        </div>
-                        <div class="form-group input1 float-left">
-                            <label for="email">Email address</label>
-                            <input type="email" class="form_style" name="email" id="email">
-                        </div>
-                        <div class="form-group float-left">
-                            <label for="phone">Phone</label>
-                            <input type="tel" class="form_style" name="phone" id="phone">
-                        </div>
-                        <div class="form-group message">
-                            <label for="msg">Message</label>
-                            <textarea class="form_style" rows="3" name="msg" id="msg"></textarea>
-                        </div>
-                        <button type="submit" id="submit" class="submit_now text-decoration-none">Submit Now<i class="fa-solid fa-arrow-right"></i></button>
-                    </form>
-                </div>
-            </div> -->
+            
         </div>
     </div>
 </section>
