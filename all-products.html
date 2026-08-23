@@ -14,6 +14,8 @@
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
     <link href="assets/css/responsive.css" rel="stylesheet" type="text/css">
     <link href="assets/css/aos.css" rel="stylesheet">
+    <link href="assets/css/header.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/product-animations.css" rel="stylesheet" type="text/css">
     <style>
         /* ===== All Products Page Styles ===== */
         .all-products-hero {
@@ -21,6 +23,56 @@
             position: relative;
             overflow: hidden;
             background: linear-gradient(140deg, #efd7ef 8%, #f5f9fc 39%, #f8eae1 66%, #eaf8f9 91%);
+        }
+
+        .hero-bg-decoration {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .hero-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            animation: blobFloat 20s ease-in-out infinite;
+        }
+
+        .hero-blob-1 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #a855f7, #ec4899);
+            top: -100px;
+            right: -100px;
+            animation-delay: 0s;
+        }
+
+        .hero-blob-2 {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #fbab2a, #f83d8e);
+            bottom: -50px;
+            left: -50px;
+            animation-delay: -7s;
+        }
+
+        .hero-blob-3 {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #ec4899, #fbab2a);
+            top: 40%;
+            right: 20%;
+            animation-delay: -14s;
+        }
+
+        @keyframes blobFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(30px, -30px) scale(1.05); }
+            50% { transform: translate(-20px, 20px) scale(0.95); }
+            75% { transform: translate(-30px, -20px) scale(1.03); }
         }
 
         .all-products-hero .container {
@@ -567,9 +619,6 @@
             }
 
             .category-filter-section {
-                position: sticky;
-                top: 70px;
-                z-index: 100;
                 padding: 30px 0 15px;
             }
 
@@ -618,12 +667,37 @@
 
         @media (max-width: 576px) {
             .all-products-hero {
-                padding: 120px 0 40px;
+                padding: 80px 0 30px;
             }
 
             .all-products-hero h1 {
-                font-size: 32px;
-                line-height: 38px;
+                font-size: 28px;
+                line-height: 34px;
+            }
+
+            .all-products-hero p {
+                font-size: 15px;
+                line-height: 24px;
+                margin-top: 12px;
+            }
+
+            .all-products-hero .breadcrumb-nav {
+                font-size: 12px;
+                margin-bottom: 12px;
+            }
+
+            .stats-bar {
+                gap: 16px;
+                margin-top: 20px;
+                padding-top: 16px;
+            }
+
+            .stats-bar .stat-number {
+                font-size: 24px;
+            }
+
+            .stats-bar .stat-label {
+                font-size: 11px;
             }
 
             .filter-tab {
@@ -647,7 +721,16 @@
             }
 
             .product-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+
+            .product-card .card-image {
+                height: 180px;
+            }
+
+            .product-card .card-image img {
+                max-height: 130px;
             }
 
             .back-floating {
@@ -672,43 +755,15 @@
     <a id="button"></a>
 
     <!-- Header -->
-    <header class="header" style="position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.98);backdrop-filter:blur(12px);box-shadow:0 1px 10px rgba(0,0,0,0.06);">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-light p-0" style="padding: 10px 0;">
-                <a class="navbar-brand" href="index.html" style="padding: 0;">
-                    <figure class="logo mb-0"><img src="assets/images/products/logo.png" alt="Craving Creams Logo"
-                            class="img-fluid" style="height: 44px; width: auto;"></figure>
-                </a>
-                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation" style="padding: 4px 8px; border: none;">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mx-auto" style="gap: 8px;">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html" style="padding: 8px 16px; font-size: 14px; font-weight: 500; border-radius: 20px; transition: all 0.3s;">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="all-products.html?type=premium" style="padding: 8px 16px; font-size: 14px; font-weight: 500; border-radius: 20px; transition: all 0.3s;">Premium</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="all-products.html?type=retail" style="padding: 8px 16px; font-size: 14px; font-weight: 500; border-radius: 20px; transition: all 0.3s;">Retail</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="all-products.html" style="padding: 8px 16px; font-size: 14px; font-weight: 500; border-radius: 20px; transition: all 0.3s;">All Products</a>
-                        </li>
-                    </ul>
-                    <div class="last_list">
-                        <a class="text-decoration-none contact_us" href="contact.html" style="padding: 8px 20px; font-size: 13px; font-weight: 600; border-radius: 20px; background: linear-gradient(135deg, #683292, #f83d8e); color: #fff; box-shadow: 0 2px 10px rgba(248, 61, 142, 0.3); transition: all 0.3s;">Contact Us<i class="fa-solid fa-arrow-right" style="margin-left: 6px; font-size: 11px;"></i></a>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </header>
+    <header id="site-header"></header>
 
     <!-- Hero Section -->
     <section class="all-products-hero" data-aos="fade-up">
+        <div class="hero-bg-decoration">
+            <div class="hero-blob hero-blob-1"></div>
+            <div class="hero-blob hero-blob-2"></div>
+            <div class="hero-blob hero-blob-3"></div>
+        </div>
         <div class="container">
             <div class="breadcrumb-nav">
                 <a href="index.html">Home</a>
@@ -717,7 +772,7 @@
             </div>
             <h1>All <span>Products</span></h1>
             <p>Discover our complete range of premium indulgences and retail favorites — crafted with passion, served with love.</p>
-            <div class="stats-bar" id="stats-bar">
+            <div class="stats-bar reveal-stagger" id="stats-bar">
                 <div class="stat">
                     <span class="stat-number total" id="total-products">0</span>
                     <span class="stat-label">Total Products</span>
@@ -735,18 +790,18 @@
     </section>
 
     <!-- Category Filter Tabs -->
-    <section class="category-filter-section" data-aos="fade-down">
+    <section class="category-filter-section reveal-on-scroll" data-aos="fade-down">
         <div class="container">
-            <div class="filter-tabs" id="filter-tabs">
+            <div class="filter-tabs reveal-stagger" id="filter-tabs">
                 <!-- Tabs will be dynamically inserted -->
             </div>
         </div>
     </section>
 
     <!-- Product Grid -->
-    <section class="product-grid-section">
+    <section class="product-grid-section reveal-on-scroll">
         <div class="container">
-            <div class="product-grid" id="product-grid">
+            <div class="product-grid reveal-stagger" id="product-grid">
                 <!-- Products will be dynamically inserted here -->
             </div>
 
@@ -1084,6 +1139,7 @@
             document.getElementById('btn-load-more').addEventListener('click', loadMore);
         });
     </script>
+<script src="assets/js/header.js" defer></script>
+    <script src="assets/js/product-animations.js" defer></script>
 </body>
-
 </html>
