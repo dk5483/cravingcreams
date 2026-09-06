@@ -449,36 +449,67 @@
         .product-grid-sort {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
 
         .product-grid-sort label {
             font-size: 13px;
             color: #646464;
-            font-weight: 500;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .sort-select-wrapper {
+            position: relative;
         }
 
         .product-grid-sort select {
-            padding: 8px 14px;
-            border: 1px solid rgba(104, 50, 146, 0.2);
-            border-radius: 10px;
+            padding: 10px 44px 10px 16px;
+            border: 1px solid rgba(104, 50, 146, 0.15);
+            border-radius: 12px;
             font-size: 13px;
-            font-weight: 500;
+            font-weight: 600;
             color: #333;
             background: #fff;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23683292' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            min-width: 180px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23683292' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
             background-repeat: no-repeat;
-            background-position: right 12px center;
-            padding-right: 36px;
+            background-position: right 14px center;
+        }
+
+        .product-grid-sort select:hover {
+            border-color: rgba(168, 85, 247, 0.4);
+            background: #faf8fc;
         }
 
         .product-grid-sort select:focus {
             outline: none;
             border-color: #a855f7;
-            box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.15);
+            box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.12);
+            background: #fff;
+        }
+
+        .sort-select-wrapper::after {
+            content: '';
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 14px;
+            height: 14px;
+            pointer-events: none;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23a855f7' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") center/contain no-repeat;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .product-grid-sort select:focus + .sort-select-wrapper::after,
+        .sort-select-wrapper:focus-within::after {
+            opacity: 1;
         }
 
         .product-grid {
@@ -765,6 +796,249 @@
             transition: all 0.3s;
         }
 
+        /* Mobile Bottom CTA Bar */
+        .mobile-bottom-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 1000;
+            background: #fff;
+            border-top: 1px solid rgba(104, 50, 146, 0.1);
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+            padding: 12px 16px;
+            padding-bottom: calc(12px + env(safe-area-inset-bottom));
+        }
+
+        .mobile-bottom-cta .cta-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .mobile-bottom-cta .cta-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            min-height: 48px;
+        }
+
+        .mobile-bottom-cta .cta-btn.filter-btn {
+            background: linear-gradient(135deg, #683292, #f83d8e);
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(104, 50, 146, 0.3);
+        }
+
+        .mobile-bottom-cta .cta-btn.filter-btn:hover,
+        .mobile-bottom-cta .cta-btn.filter-btn:active {
+            transform: scale(0.98);
+            box-shadow: 0 2px 12px rgba(104, 50, 146, 0.4);
+        }
+
+        .mobile-bottom-cta .cta-btn.sort-btn {
+            background: #fff;
+            color: #683292;
+            border: 1px solid rgba(104, 50, 146, 0.2);
+        }
+
+        .mobile-bottom-cta .cta-btn.sort-btn:hover,
+        .mobile-bottom-cta .cta-btn.sort-btn:active {
+            background: rgba(104, 50, 146, 0.04);
+            border-color: rgba(104, 50, 146, 0.3);
+        }
+
+        .mobile-bottom-cta .cta-btn .btn-badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: 700;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .mobile-bottom-cta .cta-btn.sort-btn .btn-badge {
+            background: rgba(104, 50, 146, 0.1);
+            color: #683292;
+        }
+
+        /* Mobile Bottom Sheet */
+        .mobile-bottom-sheet {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1050;
+            background: #fff;
+            border-radius: 24px 24px 0 0;
+            box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.15);
+            max-height: 85vh;
+            overflow-y: auto;
+            transform: translateY(100%);
+            transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            padding-bottom: calc(24px + env(safe-area-inset-bottom));
+        }
+
+        .mobile-bottom-sheet.open {
+            transform: translateY(0);
+        }
+
+        .mobile-bottom-sheet .sheet-handle {
+            width: 40px;
+            height: 4px;
+            background: #d4c4e0;
+            border-radius: 2px;
+            margin: 16px auto 8px;
+        }
+
+        .mobile-bottom-sheet .sheet-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px 16px;
+            border-bottom: 1px solid rgba(104, 50, 146, 0.1);
+            position: sticky;
+            top: 0;
+            background: #fff;
+            z-index: 1;
+        }
+
+        .mobile-bottom-sheet .sheet-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0f0200;
+            margin: 0;
+        }
+
+        .mobile-bottom-sheet .sheet-close {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            background: transparent;
+            color: #646464;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 12px;
+            transition: all 0.2s;
+        }
+
+        .mobile-bottom-sheet .sheet-close:hover,
+        .mobile-bottom-sheet .sheet-close:active {
+            background: rgba(104, 50, 146, 0.04);
+            color: #683292;
+        }
+
+        .mobile-bottom-sheet .sheet-content {
+            padding: 24px;
+        }
+
+        .mobile-bottom-sheet .filter-section {
+            margin-bottom: 24px;
+        }
+
+        .mobile-bottom-sheet .filter-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .mobile-bottom-sheet .filter-section-title {
+            margin-bottom: 16px;
+        }
+
+        .mobile-bottom-sheet .radio-label {
+            padding: 16px 16px;
+            font-size: 15px;
+        }
+
+        .mobile-bottom-sheet .radio-visual {
+            width: 24px;
+            height: 24px;
+        }
+
+        .mobile-bottom-sheet .radio-visual::after {
+            width: 12px;
+            height: 12px;
+        }
+
+        .mobile-bottom-sheet .sheet-actions {
+            display: flex;
+            gap: 12px;
+            padding: 20px 24px 28px;
+            border-top: 1px solid rgba(104, 50, 146, 0.1);
+            margin-top: 8px;
+            background: linear-gradient(180deg, transparent, rgba(104, 50, 146, 0.02));
+        }
+
+        .mobile-bottom-sheet .sheet-actions .cta-btn {
+            flex: 1;
+            min-height: 52px;
+            font-size: 14px;
+            font-weight: 700;
+            border-radius: 14px;
+            letter-spacing: 0.3px;
+        }
+
+        .mobile-bottom-sheet .sheet-actions .cta-btn.clear-btn {
+            background: transparent;
+            color: #683292;
+            border: 2px solid rgba(104, 50, 146, 0.2);
+        }
+
+        .mobile-bottom-sheet .sheet-actions .cta-btn.clear-btn:hover,
+        .mobile-bottom-sheet .sheet-actions .cta-btn.clear-btn:active {
+            background: rgba(104, 50, 146, 0.06);
+            border-color: rgba(104, 50, 146, 0.4);
+            color: #5a2d7a;
+            transform: scale(0.98);
+        }
+
+        .mobile-bottom-sheet .sheet-actions .cta-btn.apply-btn {
+            background: linear-gradient(135deg, #683292, #f83d8e);
+            color: #fff;
+            border: none;
+            box-shadow: 0 4px 20px rgba(104, 50, 146, 0.35),
+                        0 0 0 1px rgba(248, 61, 142, 0.15) inset;
+        }
+
+        .mobile-bottom-sheet .sheet-actions .cta-btn.apply-btn:hover,
+        .mobile-bottom-sheet .sheet-actions .cta-btn.apply-btn:active {
+            transform: scale(0.98);
+            box-shadow: 0 6px 24px rgba(104, 50, 146, 0.45),
+                        0 0 0 1px rgba(248, 61, 142, 0.2) inset;
+            background: linear-gradient(135deg, #5a2d7a, #e0347a);
+        }
+
+        .mobile-bottom-sheet-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1040;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        .mobile-bottom-sheet-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
         .back-floating:hover {
             background: linear-gradient(135deg, #522875, #e0347a);
             color: #fff;
@@ -890,6 +1164,19 @@
             .filter-section {
                 margin-bottom: 16px;
             }
+
+            /* Mobile Bottom CTA for tablet and mobile */
+            .mobile-bottom-cta {
+                display: flex;
+            }
+
+            .product-grid-header .product-grid-sort {
+                display: none;
+            }
+
+            .product-grid-area {
+                padding-bottom: 90px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -927,15 +1214,6 @@
             .product-grid-header {
                 flex-direction: column;
                 align-items: flex-start;
-            }
-
-            .product-grid-sort {
-                width: 100%;
-                justify-content: space-between;
-            }
-
-            .product-grid-sort select {
-                flex: 1;
             }
         }
 
@@ -1009,6 +1287,19 @@
 
             .filter-section {
                 padding: 20px;
+            }
+
+            /* Mobile Bottom CTA */
+            .mobile-bottom-cta {
+                display: flex;
+            }
+
+            .product-grid-header .product-grid-sort {
+                display: none;
+            }
+
+            .product-grid-area {
+                padding-bottom: 90px;
             }
         }
     </style>
@@ -1097,12 +1388,14 @@
                         </div>
                         <div class="product-grid-sort">
                             <label for="sort-select">Sort by:</label>
-                            <select id="sort-select" onchange="sortProducts()">
-                                <option value="default">Default</option>
-                                <option value="name-asc">Name (A-Z)</option>
-                                <option value="name-desc">Name (Z-A)</option>
-                                <option value="category">Category</option>
-                            </select>
+                            <div class="sort-select-wrapper">
+                                <select id="sort-select" onchange="sortProducts()">
+                                    <option value="default">Default</option>
+                                    <option value="name-asc">Name (A-Z)</option>
+                                    <option value="name-desc">Name (Z-A)</option>
+                                    <option value="category">Category</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
 
@@ -1211,6 +1504,82 @@
 
     <!-- Back to Home floating button -->
     <a href="index.html" class="back-floating" title="Back to Home"><i class="fa-solid fa-house"></i></a>
+
+    <!-- Mobile Bottom CTA Bar -->
+    <div class="mobile-bottom-cta" id="mobile-bottom-cta">
+        <div class="cta-inner">
+            <button class="cta-btn filter-btn" id="mobile-filter-cta" aria-label="Open filters">
+                <i class="fa-solid fa-filter"></i>
+                <span>Filters</span>
+                <span class="btn-badge" id="mobile-cta-filter-count">0</span>
+            </button>
+            <button class="cta-btn sort-btn" id="mobile-sort-cta" aria-label="Open sort options">
+                <i class="fa-solid fa-arrow-up-wide-short"></i>
+                <span>Sort</span>
+                <span class="btn-badge" id="mobile-cta-sort-label">Default</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Bottom Sheet Overlay -->
+    <div class="mobile-bottom-sheet-overlay" id="mobile-sheet-overlay" aria-hidden="true"></div>
+
+    <!-- Mobile Filter Sheet -->
+    <div class="mobile-bottom-sheet" id="mobile-filter-sheet" role="dialog" aria-modal="true" aria-labelledby="filter-sheet-title">
+        <div class="sheet-handle"></div>
+        <div class="sheet-header">
+            <h3 class="sheet-title" id="filter-sheet-title">Filters</h3>
+            <button class="sheet-close" id="close-filter-sheet" aria-label="Close filters"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="sheet-content" id="mobile-filter-content">
+            <!-- Filter content will be inserted here -->
+        </div>
+        <div class="sheet-actions">
+            <button class="cta-btn clear-btn" id="mobile-filter-clear-all">Clear All</button>
+            <button class="cta-btn apply-btn" id="mobile-filter-apply">Apply Filters</button>
+        </div>
+    </div>
+
+    <!-- Mobile Sort Sheet -->
+    <div class="mobile-bottom-sheet" id="mobile-sort-sheet" role="dialog" aria-modal="true" aria-labelledby="sort-sheet-title">
+        <div class="sheet-handle"></div>
+        <div class="sheet-header">
+            <h3 class="sheet-title" id="sort-sheet-title">Sort By</h3>
+            <button class="sheet-close" id="close-sort-sheet" aria-label="Close sort"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="sheet-content" id="mobile-sort-content">
+            <div class="radio-group">
+                <div class="radio-item">
+                    <input type="radio" class="radio-input" name="mobile-sort" id="mobile-sort-default" value="default" onchange="setMobileSort('default')">
+                    <label class="radio-label" for="mobile-sort-default">
+                        <span class="radio-visual"></span>
+                        <span class="radio-text">Default</span>
+                    </label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" class="radio-input" name="mobile-sort" id="mobile-sort-name-asc" value="name-asc" onchange="setMobileSort('name-asc')">
+                    <label class="radio-label" for="mobile-sort-name-asc">
+                        <span class="radio-visual"></span>
+                        <span class="radio-text">Name (A-Z)</span>
+                    </label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" class="radio-input" name="mobile-sort" id="mobile-sort-name-desc" value="name-desc" onchange="setMobileSort('name-desc')">
+                    <label class="radio-label" for="mobile-sort-name-desc">
+                        <span class="radio-visual"></span>
+                        <span class="radio-text">Name (Z-A)</span>
+                    </label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" class="radio-input" name="mobile-sort" id="mobile-sort-category" value="category" onchange="setMobileSort('category')">
+                    <label class="radio-label" for="mobile-sort-category">
+                        <span class="radio-visual"></span>
+                        <span class="radio-text">Category</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Scripts -->
     <script src="assets/js/jquery-3.7.1.min.js"></script>
@@ -1388,6 +1757,31 @@
             document.getElementById('mobile-filter-count').style.display = activeCount > 0 ? 'inline-block' : 'none';
         }
 
+        // Update mobile CTA badges
+        function updateMobileCTA() {
+            let activeCount = 0;
+            if (activeTypeFilter !== 'all') activeCount++;
+            if (activeCategoryFilter !== 'all') activeCount++;
+            
+            const filterCountEl = document.getElementById('mobile-cta-filter-count');
+            if (filterCountEl) {
+                filterCountEl.textContent = activeCount;
+                filterCountEl.style.display = activeCount > 0 ? 'inline-block' : 'none';
+            }
+
+            // Update sort label
+            const sortLabels = {
+                'default': 'Default',
+                'name-asc': 'A-Z',
+                'name-desc': 'Z-A',
+                'category': 'Category'
+            };
+            const sortLabelEl = document.getElementById('mobile-cta-sort-label');
+            if (sortLabelEl) {
+                sortLabelEl.textContent = sortLabels[document.getElementById('sort-select').value] || 'Default';
+            }
+        }
+
         // Set type filter
         function setTypeFilter(typeId) {
             activeTypeFilter = typeId;
@@ -1448,6 +1842,7 @@
             });
 
             updateClearButtons();
+            updateMobileCTA();
         }
 
         // Apply filters to products
@@ -1516,6 +1911,181 @@
                 currentPage = 1;
                 renderProducts();
             }
+        }
+
+        // Set mobile sort
+        function setMobileSort(value) {
+            document.getElementById('sort-select').value = value;
+            sortProducts();
+            closeMobileSheet('sort');
+        }
+
+        // Mobile bottom sheet functions
+        function openMobileSheet(type) {
+            const overlay = document.getElementById('mobile-sheet-overlay');
+            if (type === 'filter') {
+                const sheet = document.getElementById('mobile-filter-sheet');
+                renderMobileFilterContent();
+                sheet.classList.add('open');
+            } else if (type === 'sort') {
+                const sheet = document.getElementById('mobile-sort-sheet');
+                updateMobileSortRadios();
+                sheet.classList.add('open');
+            }
+            overlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileSheet(type) {
+            const overlay = document.getElementById('mobile-sheet-overlay');
+            if (type === 'filter') {
+                document.getElementById('mobile-filter-sheet').classList.remove('open');
+            } else if (type === 'sort') {
+                document.getElementById('mobile-sort-sheet').classList.remove('open');
+            }
+            overlay.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        function updateMobileSortRadios() {
+            const sortValue = document.getElementById('sort-select').value;
+            document.querySelectorAll('input[name="mobile-sort"]').forEach(input => {
+                input.checked = input.value === sortValue;
+            });
+        }
+
+        function renderMobileFilterContent() {
+            const container = document.getElementById('mobile-filter-content');
+            const typeCounts = { premium: 0, retail: 0 };
+            const categoryCounts = {};
+
+            allProducts.forEach(p => {
+                if (p.categoryType === 'premium') typeCounts.premium++;
+                else typeCounts.retail++;
+                
+                if (!categoryCounts[p.categoryId]) {
+                    categoryCounts[p.categoryId] = {
+                        count: 0,
+                        title: p.categoryTitle,
+                        type: p.categoryType,
+                        icon: p.categoryIcon
+                    };
+                }
+                categoryCounts[p.categoryId].count++;
+            });
+
+            const totalCount = allProducts.length;
+
+            let html = '';
+
+            // Type filters
+            html += `<div class="filter-section">`;
+            html += `<div class="filter-section-title"><h4>Product Type</h4></div>`;
+            html += `<div class="radio-group">`;
+            
+            const typeOptions = [
+                { id: 'all', label: 'All Products', count: totalCount, className: '', icon: 'fa-solid fa-list' },
+                { id: 'premium', label: 'Premium', count: typeCounts.premium, className: 'premium', icon: 'fa-solid fa-crown' },
+                { id: 'retail', label: 'Retail', count: typeCounts.retail, className: 'retail', icon: 'fa-solid fa-ice-cream' }
+            ];
+
+            typeOptions.forEach(opt => {
+                const isActive = activeTypeFilter === opt.id;
+                html += `
+                    <div class="radio-item ${opt.className}">
+                        <input type="radio" class="radio-input" name="mobile-type-filter" id="mobile-type-${opt.id}" value="${opt.id}" ${isActive ? 'checked' : ''} onchange="setMobileTypeFilter('${opt.id}')">
+                        <label class="radio-label" for="mobile-type-${opt.id}">
+                            <span class="radio-visual"></span>
+                            <span class="radio-text"><i class="${opt.icon}"></i> ${opt.label}</span>
+                            <span class="radio-count">${opt.count}</span>
+                        </label>
+                    </div>
+                `;
+            });
+            html += `</div></div>`;
+
+            // Category filters
+            html += `<div class="filter-section">`;
+            html += `<div class="filter-section-title"><h4>Categories</h4></div>`;
+
+            const premiumCategories = [];
+            const retailCategories = [];
+
+            Object.keys(PRODUCT_DATA).forEach(catId => {
+                const cat = PRODUCT_DATA[catId];
+                const count = categoryCounts[catId]?.count || 0;
+                if (cat.type === 'premium') {
+                    premiumCategories.push({ id: catId, title: cat.title, count, icon: cat.typeIcon });
+                } else {
+                    retailCategories.push({ id: catId, title: cat.title, count, icon: cat.typeIcon });
+                }
+            });
+
+            if (premiumCategories.length > 0) {
+                html += `<div class="category-group-title premium">Premium Range</div>`;
+                html += `<div class="radio-group">`;
+                premiumCategories.forEach(cat => {
+                    const isActive = activeCategoryFilter === cat.id;
+                    html += `
+                        <div class="radio-item premium">
+                            <input type="radio" class="radio-input" name="mobile-category-filter" id="mobile-cat-${cat.id}" value="${cat.id}" ${isActive ? 'checked' : ''} onchange="setMobileCategoryFilter('${cat.id}')">
+                            <label class="radio-label" for="mobile-cat-${cat.id}">
+                                <span class="radio-visual"></span>
+                                <span class="radio-text"><i class="${cat.icon}"></i> ${cat.title}</span>
+                                <span class="radio-count">${cat.count}</span>
+                            </label>
+                        </div>
+                    `;
+                });
+                html += `</div>`;
+            }
+
+            if (retailCategories.length > 0) {
+                html += `<div class="category-group-title retail">Retail Range</div>`;
+                html += `<div class="radio-group">`;
+                retailCategories.forEach(cat => {
+                    const isActive = activeCategoryFilter === cat.id;
+                    html += `
+                        <div class="radio-item retail">
+                            <input type="radio" class="radio-input" name="mobile-category-filter" id="mobile-cat-${cat.id}" value="${cat.id}" ${isActive ? 'checked' : ''} onchange="setMobileCategoryFilter('${cat.id}')">
+                            <label class="radio-label" for="mobile-cat-${cat.id}">
+                                <span class="radio-visual"></span>
+                                <span class="radio-text"><i class="${cat.icon}"></i> ${cat.title}</span>
+                                <span class="radio-count">${cat.count}</span>
+                            </label>
+                        </div>
+                    `;
+                });
+                html += `</div>`;
+            }
+
+            html += `</div>`;
+            container.innerHTML = html;
+        }
+
+        // Mobile type filter
+        function setMobileTypeFilter(typeId) {
+            activeTypeFilter = typeId;
+            if (typeId !== 'all') {
+                activeCategoryFilter = 'all';
+            }
+            currentPage = 1;
+            updateFilterUI();
+            applyFilters();
+            renderMobileFilterContent();
+        }
+
+        // Mobile category filter
+        function setMobileCategoryFilter(categoryId) {
+            activeCategoryFilter = categoryId;
+            if (categoryId !== 'all') {
+                const cat = PRODUCT_DATA[categoryId];
+                if (cat) activeTypeFilter = cat.type;
+            }
+            currentPage = 1;
+            updateFilterUI();
+            applyFilters();
+            renderMobileFilterContent();
         }
 
         // Render products for current page
@@ -1635,6 +2205,47 @@
             });
         }
 
+        // Initialize mobile bottom CTA and sheets
+        function initMobileBottomCTA() {
+            // Filter CTA
+            document.getElementById('mobile-filter-cta').addEventListener('click', () => openMobileSheet('filter'));
+            
+            // Sort CTA
+            document.getElementById('mobile-sort-cta').addEventListener('click', () => openMobileSheet('sort'));
+
+            // Close buttons
+            document.getElementById('close-filter-sheet').addEventListener('click', () => closeMobileSheet('filter'));
+            document.getElementById('close-sort-sheet').addEventListener('click', () => closeMobileSheet('sort'));
+
+            // Overlay click
+            document.getElementById('mobile-sheet-overlay').addEventListener('click', () => {
+                closeMobileSheet('filter');
+                closeMobileSheet('sort');
+            });
+
+            // Filter sheet actions
+            document.getElementById('mobile-filter-clear-all').addEventListener('click', () => {
+                activeTypeFilter = 'all';
+                activeCategoryFilter = 'all';
+                currentPage = 1;
+                updateFilterUI();
+                applyFilters();
+                renderMobileFilterContent();
+            });
+
+            document.getElementById('mobile-filter-apply').addEventListener('click', () => {
+                closeMobileSheet('filter');
+            });
+
+            // Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeMobileSheet('filter');
+                    closeMobileSheet('sort');
+                }
+            });
+        }
+
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
             allProducts = buildProductList();
@@ -1653,8 +2264,14 @@
                 clearCategoryFilter();
             });
 
-            // Mobile filter
+            // Mobile filter sidebar (legacy)
             initMobileFilter();
+
+            // Mobile bottom CTA
+            initMobileBottomCTA();
+
+            // Initial mobile CTA update
+            updateMobileCTA();
         });
     </script>
     <script src="assets/js/header.js" defer></script>
