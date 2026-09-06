@@ -1,0 +1,744 @@
+/* ============================================================
+   PRODUCT PAGE ANIMATIONS - Craving Creams
+   ============================================================ */
+
+/* CSS Variables for Animations */
+:root {
+  --anim-duration-fast: 0.4s;
+  --anim-duration-normal: 0.7s;
+  --anim-duration-slow: 1s;
+  --anim-easing: cubic-bezier(0.23, 1, 0.32, 1);
+  --anim-easing-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --anim-easing-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* ============================================================
+   ENTRANCE ANIMATIONS
+   ============================================================ */
+
+/* Page load sequence */
+.product-page {
+  opacity: 1;
+}
+
+.product-page * {
+  animation-fill-mode: both;
+}
+
+/* Hero Section */
+.product-hero {
+  animation: heroFadeIn var(--anim-duration-slow) var(--anim-easing) forwards;
+}
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Breadcrumb */
+.breadcrumb-nav {
+  animation: slideUpFade var(--anim-duration-normal) var(--anim-easing) 0.1s forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes slideUpFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sectionReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Product Image Wrapper */
+.product-image-wrapper {
+  animation: imageReveal var(--anim-duration-slow) var(--anim-easing-spring) 0.2s forwards;
+  opacity: 0;
+  transform: scale(0.95) translateY(20px);
+}
+
+@keyframes imageReveal {
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Floating orb in image */
+.product-image-wrapper::before {
+  animation: orbFloat 6s ease-in-out infinite;
+}
+
+@keyframes orbFloat {
+  0%, 100% { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+  25% { transform: translate(-50%, -50%) scale(1.05) rotate(90deg); }
+  50% { transform: translate(-50%, -50%) scale(1.1) rotate(180deg); }
+  75% { transform: translate(-50%, -50%) scale(1.05) rotate(270deg); }
+}
+
+/* Product Image */
+.product-image-wrapper img {
+  animation: imageFloat 8s ease-in-out infinite;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@keyframes imageFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+.product-image-wrapper:hover img {
+  transform: scale(1.08) translateY(-8px) rotate(2deg) !important;
+  animation-play-state: paused;
+}
+
+/* Zoom hint */
+.zoom-hint {
+  animation: hintPulse 2s ease-in-out infinite;
+  opacity: 0;
+  animation: hintFadeIn 0.5s ease 1.5s forwards, hintPulse 2s ease-in-out infinite 2s;
+}
+
+@keyframes hintFadeIn {
+  to { opacity: 0.6; }
+}
+
+@keyframes hintPulse {
+  0%, 100% { opacity: 0.4; transform: translateY(0); }
+  50% { opacity: 0.8; transform: translateY(-3px); }
+}
+
+/* Product Info */
+.product-info {
+  animation: slideUpFade var(--anim-duration-normal) var(--anim-easing) 0.3s forwards;
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+/* Badge */
+.product-badge {
+  animation: badgePop var(--anim-duration-normal) var(--anim-easing-bounce) 0.4s forwards;
+  opacity: 0;
+  transform: scale(0.5) rotate(-10deg);
+}
+
+@keyframes badgePop {
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* Product Name */
+.product-info h1 {
+  animation: textReveal var(--anim-duration-slow) var(--anim-easing) 0.5s forwards;
+  opacity: 0;
+}
+
+@keyframes textReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Category Link */
+.product-category-link {
+  animation: slideUpFade var(--anim-duration-normal) var(--anim-easing) 0.6s forwards;
+  opacity: 0;
+  transform: translateY(15px);
+}
+
+/* Description */
+.product-description {
+  animation: slideUpFade var(--anim-duration-normal) var(--anim-easing) 0.7s forwards;
+  opacity: 0;
+  transform: translateY(15px);
+}
+
+/* Highlights */
+.product-highlights {
+  animation: highlightsReveal var(--anim-duration-slow) var(--anim-easing-spring) 0.8s forwards;
+  opacity: 0;
+}
+
+.highlight-item {
+  animation: highlightItemPop var(--anim-duration-normal) var(--anim-easing-bounce) forwards;
+  opacity: 0;
+  transform: translateX(-20px) scale(0.8);
+}
+
+.highlight-item:nth-child(1) { animation-delay: 0.9s; }
+.highlight-item:nth-child(2) { animation-delay: 1s; }
+.highlight-item:nth-child(3) { animation-delay: 1.1s; }
+.highlight-item:nth-child(4) { animation-delay: 1.2s; }
+.highlight-item:nth-child(5) { animation-delay: 1.3s; }
+.highlight-item:nth-child(6) { animation-delay: 1.4s; }
+.highlight-item:nth-child(7) { animation-delay: 1.5s; }
+.highlight-item:nth-child(8) { animation-delay: 1.6s; }
+
+@keyframes highlightItemPop {
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes highlightsReveal {
+  to { opacity: 1; }
+}
+
+/* Check icon animation */
+.highlight-item .check-icon {
+  animation: checkDraw 0.6s var(--anim-easing) forwards;
+  stroke-dasharray: 30;
+  stroke-dashoffset: 30;
+}
+
+.highlight-item:nth-child(1) .check-icon { animation-delay: 1.1s; }
+.highlight-item:nth-child(2) .check-icon { animation-delay: 1.2s; }
+.highlight-item:nth-child(3) .check-icon { animation-delay: 1.3s; }
+.highlight-item:nth-child(4) .check-icon { animation-delay: 1.4s; }
+.highlight-item:nth-child(5) .check-icon { animation-delay: 1.5s; }
+.highlight-item:nth-child(6) .check-icon { animation-delay: 1.6s; }
+.highlight-item:nth-child(7) .check-icon { animation-delay: 1.7s; }
+.highlight-item:nth-child(8) .check-icon { animation-delay: 1.8s; }
+
+@keyframes checkDraw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Action Buttons */
+        .product-actions {
+          animation: buttonsReveal var(--anim-duration-normal) var(--anim-easing-spring) 1.4s forwards;
+          opacity: 0;
+          transform: translateY(20px);
+        }
+
+        @keyframes buttonsReveal {
+          to { opacity: 1; transform: translateY(0); }
+        }
+
+/* Related Products Section */
+        .related-products {
+          animation: sectionReveal var(--anim-duration-slow) var(--anim-easing) forwards;
+          opacity: 0;
+          transform: translateY(40px);
+        }
+
+        .related-products h2 {
+          animation: textReveal var(--anim-duration-slow) var(--anim-easing) forwards;
+          opacity: 0;
+        }
+
+        .related-products > .container > p {
+          animation: slideUpFade var(--anim-duration-normal) var(--anim-easing) 0.2s forwards;
+          opacity: 0;
+          transform: translateY(15px);
+        }
+
+        .related-product-card .rp-image img {
+          transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .related-product-card:hover .rp-image img {
+          transform: scale(1.12) rotate(2deg);
+        }
+
+        .related-product-card::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(236, 72, 153, 0.1));
+          border-radius: inherit;
+          opacity: 0;
+          transition: opacity 0.4s ease;
+        }
+
+        .related-product-card:hover::before {
+          opacity: 1;
+        }
+
+/* ============================================================
+   INTERACTIVE HOVER EFFECTS
+   ============================================================ */
+
+/* Magnetic effect on buttons */
+.magnetic {
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Ripple effect */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.ripple:active::after {
+  animation: rippleEffect 0.5s ease-out;
+}
+
+@keyframes rippleEffect {
+  to {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+  }
+}
+
+/* Shimmer effect on cards */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 70%
+  );
+  transform: rotate(45deg) translateX(-100%);
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  to { transform: rotate(45deg) translateX(100%); }
+}
+
+/* ============================================================
+   CATEGORY PAGE ANIMATIONS
+   ============================================================ */
+
+.category-banner {
+  animation: heroFadeIn var(--anim-duration-slow) var(--anim-easing) forwards;
+}
+
+.category-banner .breadcrumb-nav,
+.category-banner .category-badge,
+.category-banner h1,
+.category-banner p,
+.category-banner .category-stats {
+  animation: slideUpFade var(--anim-duration-normal) var(--anim-easing) forwards;
+  opacity: 0;
+}
+
+.category-banner .breadcrumb-nav { animation-delay: 0.1s; }
+.category-banner .category-badge { animation-delay: 0.2s; }
+.category-banner h1 { animation-delay: 0.3s; }
+.category-banner p { animation-delay: 0.4s; }
+.category-banner .category-stats { animation-delay: 0.5s; }
+
+/* Category filter tabs */
+.category-filter-section {
+  animation: slideDownFade var(--anim-duration-normal) var(--anim-easing) forwards;
+}
+
+@keyframes slideDownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.filter-tab {
+  animation: tabPopIn var(--anim-duration-normal) var(--anim-easing-bounce) forwards;
+  opacity: 0;
+  transform: scale(0.8) translateY(10px);
+}
+
+.filter-tab:nth-child(1) { animation-delay: 0.1s; }
+.filter-tab:nth-child(2) { animation-delay: 0.15s; }
+.filter-tab:nth-child(3) { animation-delay: 0.2s; }
+.filter-tab:nth-child(4) { animation-delay: 0.25s; }
+.filter-tab:nth-child(5) { animation-delay: 0.3s; }
+.filter-tab:nth-child(6) { animation-delay: 0.35s; }
+.filter-tab:nth-child(7) { animation-delay: 0.4s; }
+.filter-tab:nth-child(8) { animation-delay: 0.45s; }
+.filter-tab:nth-child(9) { animation-delay: 0.5s; }
+.filter-tab:nth-child(10) { animation-delay: 0.55s; }
+.filter-tab:nth-child(11) { animation-delay: 0.6s; }
+
+@keyframes tabPopIn {
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Product grid */
+.product-grid-section {
+  animation: sectionReveal var(--anim-duration-slow) var(--anim-easing) forwards;
+}
+
+.product-grid {
+  animation: gridReveal var(--anim-duration-slow) var(--anim-easing-spring) forwards;
+  opacity: 0;
+}
+
+@keyframes gridReveal {
+  to { opacity: 1; }
+}
+
+.product-card {
+  animation: cardStaggerIn var(--anim-duration-slow) var(--anim-easing-spring) forwards;
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+}
+
+/* Stagger delays will be set via inline style or JS */
+.product-card.style-delay-1 { animation-delay: 0.05s; }
+.product-card.style-delay-2 { animation-delay: 0.1s; }
+.product-card.style-delay-3 { animation-delay: 0.15s; }
+.product-card.style-delay-4 { animation-delay: 0.2s; }
+.product-card.style-delay-5 { animation-delay: 0.25s; }
+.product-card.style-delay-6 { animation-delay: 0.3s; }
+.product-card.style-delay-7 { animation-delay: 0.35s; }
+.product-card.style-delay-8 { animation-delay: 0.4s; }
+.product-card.style-delay-9 { animation-delay: 0.45s; }
+.product-card.style-delay-10 { animation-delay: 0.5s; }
+.product-card.style-delay-11 { animation-delay: 0.55s; }
+.product-card.style-delay-12 { animation-delay: 0.6s; }
+
+@keyframes cardStaggerIn {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Product card hover */
+.product-card {
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.product-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
+}
+
+.product-card .card-image img {
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  animation: cardImageFloat 6s ease-in-out infinite;
+}
+
+@keyframes cardImageFloat {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-5px) scale(1.02); }
+}
+
+.product-card:hover .card-image img {
+  transform: scale(1.15) translateY(-10px) rotate(3deg) !important;
+  animation-play-state: paused;
+}
+
+/* Card overlay */
+.card-overlay {
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.product-card:hover .card-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.view-btn {
+  animation: btnSlideUp 0.3s var(--anim-easing-bounce) forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.product-card:hover .view-btn {
+  animation: btnSlideUp 0.3s var(--anim-easing-bounce) forwards;
+}
+
+@keyframes btnSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Type badge animation */
+.type-badge {
+  animation: badgeSlideIn 0.5s var(--anim-easing) forwards;
+  opacity: 0;
+  transform: translateX(-15px);
+}
+
+.product-card:hover .type-badge {
+  animation: badgePulse 0.5s var(--anim-easing);
+}
+
+@keyframes badgeSlideIn {
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes badgePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Category label */
+.category-label {
+  animation: labelFadeIn 0.4s var(--anim-easing) 0.2s forwards;
+  opacity: 0;
+}
+
+@keyframes labelFadeIn {
+  to { opacity: 1; }
+}
+
+/* Product name */
+.product-card h5 {
+  animation: nameSlideUp 0.4s var(--anim-easing) 0.3s forwards;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+@keyframes nameSlideUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Product description */
+.product-card p {
+  animation: descFadeIn 0.4s var(--anim-easing) 0.4s forwards;
+  opacity: 0;
+}
+
+@keyframes descFadeIn {
+  to { opacity: 1; }
+}
+
+/* Empty state */
+.empty-state {
+  animation: emptyStateReveal var(--anim-duration-slow) var(--anim-easing-spring) forwards;
+}
+
+.empty-state i {
+  animation: iconFloat 3s ease-in-out infinite;
+}
+
+@keyframes iconFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes emptyStateReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+
+
+/* Stats bar */
+.stats-bar {
+  animation: statsReveal var(--anim-duration-normal) var(--anim-easing-spring) 0.3s forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.stats-bar .stat {
+  animation: statPopIn 0.6s var(--anim-easing-bounce) forwards;
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+.stats-bar .stat:nth-child(1) { animation-delay: 0.4s; }
+.stats-bar .stat:nth-child(2) { animation-delay: 0.5s; }
+.stats-bar .stat:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes statPopIn {
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Back to top button */
+#button {
+  animation: backToTopReveal 0.5s var(--anim-easing) forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes backToTopReveal {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#button:hover {
+  animation: bounce 0.5s var(--anim-easing-bounce);
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-8px) scale(1.1); }
+}
+
+/* Floating back button */
+.back-floating {
+  animation: floatIn 0.6s var(--anim-easing-spring) 1s forwards, floatPulse 3s ease-in-out infinite 1.5s;
+  opacity: 0;
+  transform: scale(0) translateY(20px);
+}
+
+@keyframes floatIn {
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes floatPulse {
+  0%, 100% { box-shadow: 0 4px 20px rgba(104, 50, 146, 0.4); transform: scale(1); }
+  50% { box-shadow: 0 8px 30px rgba(168, 85, 247, 0.6); transform: scale(1.05); }
+}
+
+.back-floating:hover {
+  animation: floatHover 0.3s var(--anim-easing), floatPulse 3s ease-in-out infinite;
+}
+
+@keyframes floatHover {
+  to { transform: scale(1.15); }
+}
+
+/* ============================================================
+   SCROLL-TRIGGERED ANIMATIONS (IntersectionObserver)
+   ============================================================ */
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered children */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 0.05s; }
+.reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 0.1s; }
+.reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 0.15s; }
+.reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 0.2s; }
+.reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 0.25s; }
+.reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 0.3s; }
+.reveal-stagger.is-visible > *:nth-child(7) { transition-delay: 0.35s; }
+.reveal-stagger.is-visible > *:nth-child(8) { transition-delay: 0.4s; }
+
+.reveal-stagger.is-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   LOADING STATES
+   ============================================================ */
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 25%,
+    #e0e0e0 50%,
+    #f0f0f0 75%
+  );
+  background-size: 200% 100%;
+  animation: skeletonLoading 1.5s ease-in-out infinite;
+  border-radius: 8px;
+}
+
+@keyframes skeletonLoading {
+  to { background-position: -200% 0; }
+}
+
+/* ============================================================
+   PARALLAX ELEMENTS
+   ============================================================ */
+
+.parallax-element {
+  will-change: transform;
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .product-image-wrapper::before,
+  .product-image-wrapper img,
+  .zoom-hint,
+  .empty-state i,
+  .back-floating {
+    animation: none !important;
+  }
+}
+
+/* ============================================================
+   PRINT STYLES
+   ============================================================ */
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

@@ -14,6 +14,8 @@
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
     <link href="assets/css/responsive.css" rel="stylesheet" type="text/css">
     <link href="assets/css/aos.css" rel="stylesheet">
+    <link href="assets/css/header.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/product-animations.css" rel="stylesheet" type="text/css">
     <style>
         /* ===== Category Page Banner ===== */
         .category-banner {
@@ -330,7 +332,16 @@
 
         @media (max-width: 576px) {
             .product-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+
+            .product-card .card-image {
+                height: 200px;
+            }
+
+            .product-card .card-image img {
+                max-height: 140px;
             }
 
             .category-banner h1 {
@@ -345,37 +356,7 @@
     <!-- Back to top button -->
     <a id="button"></a>
     <!-- Header -->
-    <header class="header"
-        style="position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);box-shadow:0 2px 20px rgba(0,0,0,0.08);">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-light p-0">
-                <a class="navbar-brand" href="index.html">
-                    <figure class="logo mb-0"><img src="assets/images/products/logo.png" alt="Craving Creams Logo"
-                            class="img-fluid"></figure>
-                </a>
-                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                    <span class="navbar-toggler-icon"></span>
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mx-auto">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="all-products.html?type=premium">Premium</a></li>
-                        <li class="nav-item"><a class="nav-link" href="all-products.html?type=retail">Retail</a></li>
-                        <li class="nav-item"><a class="nav-link" href="all-products.html">All Products</a></li>
-                    </ul>
-                    <div class="last_list">
-                        <a class="text-decoration-none contact_us" href="contact.html">Contact Us<i
-                                class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </header>
-
+    <header id="site-header"></header>
     <!-- Category Banner -->
     <section class="category-banner" data-aos="fade-up">
         <div class="container">
@@ -403,17 +384,17 @@
     </section>
 
     <!-- Product Grid -->
-    <section class="product-grid-section">
+    <section class="product-grid-section reveal-on-scroll">
         <div class="container">
-            <div class="product-grid" id="product-grid">
+            <div class="product-grid reveal-stagger" id="product-grid">
                 <!-- Products will be dynamically inserted here -->
             </div>
         </div>
     </section>
 
     <!-- Related Categories -->
-    <section class="related-categories">
-        <div class="container">
+    <section class="related-categories reveal-on-scroll">
+        <div class="container reveal-stagger">
             <h2 data-aos="fade-up">Explore More <span>Categories</span></h2>
             <p data-aos="fade-up">Discover other delicious collections from Craving Creams.</p>
             <div class="row" id="related-categories" data-aos="fade-up">
@@ -600,6 +581,7 @@
             window.location.href = 'all-products.html';
         }
     </script>
+<script src="assets/js/header.js" defer></script>
+    <script src="assets/js/product-animations.js" defer></script>
 </body>
-
 </html>

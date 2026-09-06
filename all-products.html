@@ -14,13 +14,65 @@
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
     <link href="assets/css/responsive.css" rel="stylesheet" type="text/css">
     <link href="assets/css/aos.css" rel="stylesheet">
+    <link href="assets/css/header.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/product-animations.css" rel="stylesheet" type="text/css">
     <style>
         /* ===== All Products Page Styles ===== */
         .all-products-hero {
-            padding: 180px 0 60px;
+            padding: 50px 0 20px;
             position: relative;
             overflow: hidden;
             background: linear-gradient(140deg, #efd7ef 8%, #f5f9fc 39%, #f8eae1 66%, #eaf8f9 91%);
+        }
+
+        .hero-bg-decoration {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .hero-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            animation: blobFloat 20s ease-in-out infinite;
+        }
+
+        .hero-blob-1 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #a855f7, #ec4899);
+            top: -100px;
+            right: -100px;
+            animation-delay: 0s;
+        }
+
+        .hero-blob-2 {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #fbab2a, #f83d8e);
+            bottom: -50px;
+            left: -50px;
+            animation-delay: -7s;
+        }
+
+        .hero-blob-3 {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #ec4899, #fbab2a);
+            top: 40%;
+            right: 20%;
+            animation-delay: -14s;
+        }
+
+        @keyframes blobFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(30px, -30px) scale(1.05); }
+            50% { transform: translate(-20px, 20px) scale(0.95); }
+            75% { transform: translate(-30px, -20px) scale(1.03); }
         }
 
         .all-products-hero .container {
@@ -64,168 +116,400 @@
             color: #646464;
         }
 
-        /* Category Filter Tabs */
-        .category-filter-section {
-            padding: 40px 0 20px;
-            background: #fff;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-        }
-
-        .category-filter-section .container {
-            position: relative;
-        }
-
-        .filter-tabs {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .filter-tab {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 22px;
-            border-radius: 50px;
-            font-size: 14px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            border: 2px solid transparent;
-            cursor: pointer;
-            white-space: nowrap;
-        }
-
-        .filter-tab.primary-tab {
-            background: transparent;
-            color: #8b3dd8;
-            border-color: #e8d5f5;
-            box-shadow: none;
-        }
-
-        .filter-tab.primary-tab:hover,
-        .filter-tab.primary-tab.active {
-            background: linear-gradient(135deg, #a855f7, #ec4899);
-            border-color: transparent;
-            color: #fff;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(168, 85, 247, 0.5);
-        }
-
-        /* Premium tab - special highlight */
-        .filter-tab.premium-tab {
-            background: linear-gradient(135deg, rgba(168, 85, 247, 0.12), rgba(236, 72, 153, 0.12));
-            color: #7c3aed;
-            border-color: rgba(168, 85, 247, 0.3);
-            box-shadow: 0 0 0 1px rgba(168, 85, 247, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.5);
-            position: relative;
-        }
-
-        .filter-tab.premium-tab::before {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            border-radius: 52px;
-            background: linear-gradient(135deg, #a855f7, #ec4899, #fbab2a);
-            z-index: -1;
-            opacity: 0;
-            filter: blur(8px);
-            transition: opacity 0.3s;
-        }
-
-        .filter-tab.premium-tab:hover::before,
-        .filter-tab.premium-tab.active::before {
-            opacity: 0.4;
-        }
-
-        .filter-tab.premium-tab:hover,
-        .filter-tab.premium-tab.active {
-            background: linear-gradient(135deg, #a855f7, #ec4899);
-            border-color: transparent;
-            color: #fff;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(168, 85, 247, 0.5), 0 0 0 1px rgba(168, 85, 247, 0.3);
-        }
-
-        .filter-tab.premium-tab .badge-count {
-            background: linear-gradient(135deg, #a855f7, #ec4899);
-            color: #fff;
-            box-shadow: 0 2px 8px rgba(168, 85, 247, 0.4);
-        }
-
-        .filter-tab.secondary-tab {
-            background: transparent;
-            color: #fbab2a;
-            border-color: #fdebd0;
-            box-shadow: none;
-        }
-
-        .filter-tab.secondary-tab:hover,
-        .filter-tab.secondary-tab.active {
-            background: linear-gradient(135deg, #fbab2a, #ff6565);
-            border-color: transparent;
-            color: #fff;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(251, 171, 42, 0.4);
-        }
-
-        .filter-tab.outline-tab {
-            background: transparent;
-            color: #683292;
-            border-color: #e5dce8;
-        }
-
-        .filter-tab.outline-tab:hover,
-        .filter-tab.outline-tab.active {
-            background: linear-gradient(135deg, #a855f7, #ec4899);
-            border-color: transparent;
-            color: #fff;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
-        }
-
-        .filter-tab i {
-            font-size: 14px;
-        }
-
-        .filter-tab .badge-count {
-            background: rgba(104, 50, 146, 0.1);
-            padding: 2px 8px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 700;
-            color: #683292;
-        }
-
-        .filter-tab.secondary-tab .badge-count {
-            background: rgba(251, 171, 42, 0.15);
-            color: #fbab2a;
-        }
-
-        .filter-tab.premium-tab .badge-count {
-            background: linear-gradient(135deg, #a855f7, #ec4899);
-            color: #fff;
-            box-shadow: 0 2px 8px rgba(168, 85, 247, 0.4);
-        }
-
-        .filter-tab.primary-tab.active .badge-count,
-        .filter-tab.primary-tab:hover .badge-count,
-        .filter-tab.secondary-tab.active .badge-count,
-        .filter-tab.secondary-tab:hover .badge-count,
-        .filter-tab.premium-tab.active .badge-count,
-        .filter-tab.premium-tab:hover .badge-count,
-        .filter-tab.outline-tab.active .badge-count,
-        .filter-tab.outline-tab:hover .badge-count {
-            background: rgba(255, 255, 255, 0.2);
-            color: #fff;
-        }
-
-        /* Product Grid Section */
-        .product-grid-section {
+        /* ===== Two Column Layout ===== */
+        .products-layout {
             padding: 50px 0 80px;
             background: #faf8fc;
+        }
+
+        .products-layout .container {
+            max-width: 1400px;
+        }
+
+        .products-grid-wrapper {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 40px;
+            align-items: start;
+            width: 100%;
+        }
+
+        .products-grid-wrapper > .filter-sidebar {
+            grid-column: 1;
+        }
+
+        .products-grid-wrapper > .product-grid-area {
+            grid-column: 2;
+            min-width: 0;
+        }
+
+        /* ===== Filter Sidebar ===== */
+        .filter-sidebar {
+            position: sticky;
+            top: 100px;
+            max-height: calc(100vh - 140px);
+            overflow-y: auto;
+            padding-right: 10px;
+            grid-column: 1;
+        }
+
+        .filter-sidebar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .filter-sidebar::-webkit-scrollbar-track {
+            background: #f0eef3;
+            border-radius: 3px;
+        }
+
+        .filter-sidebar::-webkit-scrollbar-thumb {
+            background: #d4c4e0;
+            border-radius: 3px;
+        }
+
+        .filter-section {
+            background: #fff;
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            margin-bottom: 20px;
+            border: 1px solid rgba(104, 50, 146, 0.06);
+        }
+
+        .filter-section-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(104, 50, 146, 0.1);
+        }
+
+        .filter-section-title h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #0f0200;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0;
+        }
+
+        .filter-section-title .clear-filter {
+            font-size: 12px;
+            color: #683292;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .filter-section-title .clear-filter:hover {
+            color: #f83d8e;
+        }
+
+        /* Radio Button Styles */
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .radio-item {
+            position: relative;
+        }
+
+        .radio-input {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+            pointer-events: none;
+        }
+
+        .radio-label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            background: transparent;
+            border: 1px solid transparent;
+            font-size: 14px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .radio-label:hover {
+            background: rgba(104, 50, 146, 0.04);
+            border-color: rgba(104, 50, 146, 0.15);
+        }
+
+        .radio-input:checked + .radio-label {
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(236, 72, 153, 0.1));
+            border-color: rgba(168, 85, 247, 0.3);
+            color: #683292;
+        }
+
+        .radio-input:focus-visible + .radio-label {
+            outline: 2px solid #a855f7;
+            outline-offset: 2px;
+        }
+
+        /* Radio Button Visual */
+        .radio-visual {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #d4c4e0;
+            position: relative;
+            flex-shrink: 0;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .radio-input:checked + .radio-label .radio-visual {
+            border-color: #a855f7;
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.2);
+        }
+
+        .radio-visual::after {
+            content: '';
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #a855f7, #ec4899);
+            transform: scale(0);
+            transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .radio-input:checked + .radio-label .radio-visual::after {
+            transform: scale(1);
+        }
+
+        .radio-label .radio-text {
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .radio-label .radio-count {
+            background: rgba(104, 50, 146, 0.1);
+            color: #683292;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 700;
+            transition: all 0.2s;
+        }
+
+        .radio-input:checked + .radio-label .radio-count {
+            background: linear-gradient(135deg, #a855f7, #ec4899);
+            color: #fff;
+        }
+
+        /* Premium type radio */
+        .radio-item.premium .radio-input:checked + .radio-label {
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.12), rgba(236, 72, 153, 0.12));
+            border-color: rgba(168, 85, 247, 0.3);
+            color: #7c3aed;
+        }
+
+        .radio-item.premium .radio-input:checked + .radio-label .radio-visual {
+            border-color: #a855f7;
+            box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.25);
+        }
+
+        .radio-item.premium .radio-input:checked + .radio-label .radio-count {
+            background: linear-gradient(135deg, #a855f7, #ec4899);
+            color: #fff;
+        }
+
+        /* Retail type radio */
+        .radio-item.retail .radio-input:checked + .radio-label {
+            background: linear-gradient(135deg, rgba(251, 171, 42, 0.12), rgba(255, 101, 101, 0.12));
+            border-color: rgba(251, 171, 42, 0.3);
+            color: #fbab2a;
+        }
+
+        .radio-item.retail .radio-input:checked + .radio-label .radio-visual {
+            border-color: #fbab2a;
+            box-shadow: 0 0 0 3px rgba(251, 171, 42, 0.25);
+        }
+
+        .radio-item.retail .radio-input:checked + .radio-label .radio-count {
+            background: linear-gradient(135deg, #fbab2a, #ff6565);
+            color: #fff;
+        }
+
+        .radio-item.retail .radio-label:hover {
+            background: rgba(251, 171, 42, 0.04);
+            border-color: rgba(251, 171, 42, 0.15);
+        }
+
+        /* Category group */
+        .category-group {
+            margin-bottom: 16px;
+        }
+
+        .category-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .category-group-title {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #9988a6;
+            margin-bottom: 10px;
+            padding-left: 4px;
+        }
+
+        .category-group-title.premium {
+            color: #a855f7;
+        }
+
+        .category-group-title.retail {
+            color: #fbab2a;
+        }
+
+        /* Filter Overlay - Hidden on desktop */
+        .filter-overlay {
+            display: none;
+        }
+
+        /* Mobile Filter Toggle */
+        .mobile-filter-toggle {
+            display: none;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 20px;
+            background: linear-gradient(135deg, #683292, #f83d8e);
+            color: #fff;
+            border: none;
+            border-radius: 14px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(104, 50, 146, 0.3);
+            margin-bottom: 24px;
+            width: 100%;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .mobile-filter-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(104, 50, 146, 0.4);
+        }
+
+        .mobile-filter-toggle i {
+            font-size: 16px;
+        }
+
+        .filter-badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        /* ===== Product Grid ===== */
+        .product-grid-area {
+            min-width: 0;
+        }
+
+        .product-grid-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(104, 50, 146, 0.1);
+        }
+
+        .product-grid-results {
+            font-size: 14px;
+            color: #646464;
+            font-weight: 500;
+        }
+
+        .product-grid-results strong {
+            color: #0f0200;
+        }
+
+        .product-grid-sort {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .product-grid-sort label {
+            font-size: 13px;
+            color: #646464;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .sort-select-wrapper {
+            position: relative;
+        }
+
+        .product-grid-sort select {
+            padding: 10px 44px 10px 16px;
+            border: 1px solid rgba(104, 50, 146, 0.15);
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #333;
+            background: #fff;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            appearance: none;
+            min-width: 180px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23683292' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+        }
+
+        .product-grid-sort select:hover {
+            border-color: rgba(168, 85, 247, 0.4);
+            background: #faf8fc;
+        }
+
+        .product-grid-sort select:focus {
+            outline: none;
+            border-color: #a855f7;
+            box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.12);
+            background: #fff;
+        }
+
+        .sort-select-wrapper::after {
+            content: '';
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 14px;
+            height: 14px;
+            pointer-events: none;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23a855f7' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") center/contain no-repeat;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .product-grid-sort select:focus + .sort-select-wrapper::after,
+        .sort-select-wrapper:focus-within::after {
+            opacity: 1;
         }
 
         .product-grid {
@@ -245,6 +529,18 @@
             position: relative;
             opacity: 1;
             transform: scale(1);
+            animation: fadeInUp 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .product-card.hidden {
@@ -500,6 +796,249 @@
             transition: all 0.3s;
         }
 
+        /* Mobile Bottom CTA Bar */
+        .mobile-bottom-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 1000;
+            background: #fff;
+            border-top: 1px solid rgba(104, 50, 146, 0.1);
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+            padding: 12px 16px;
+            padding-bottom: calc(12px + env(safe-area-inset-bottom));
+        }
+
+        .mobile-bottom-cta .cta-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .mobile-bottom-cta .cta-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            min-height: 48px;
+        }
+
+        .mobile-bottom-cta .cta-btn.filter-btn {
+            background: linear-gradient(135deg, #683292, #f83d8e);
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(104, 50, 146, 0.3);
+        }
+
+        .mobile-bottom-cta .cta-btn.filter-btn:hover,
+        .mobile-bottom-cta .cta-btn.filter-btn:active {
+            transform: scale(0.98);
+            box-shadow: 0 2px 12px rgba(104, 50, 146, 0.4);
+        }
+
+        .mobile-bottom-cta .cta-btn.sort-btn {
+            background: #fff;
+            color: #683292;
+            border: 1px solid rgba(104, 50, 146, 0.2);
+        }
+
+        .mobile-bottom-cta .cta-btn.sort-btn:hover,
+        .mobile-bottom-cta .cta-btn.sort-btn:active {
+            background: rgba(104, 50, 146, 0.04);
+            border-color: rgba(104, 50, 146, 0.3);
+        }
+
+        .mobile-bottom-cta .cta-btn .btn-badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: 700;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .mobile-bottom-cta .cta-btn.sort-btn .btn-badge {
+            background: rgba(104, 50, 146, 0.1);
+            color: #683292;
+        }
+
+        /* Mobile Bottom Sheet */
+        .mobile-bottom-sheet {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1050;
+            background: #fff;
+            border-radius: 24px 24px 0 0;
+            box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.15);
+            max-height: 85vh;
+            overflow-y: auto;
+            transform: translateY(100%);
+            transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            padding-bottom: calc(24px + env(safe-area-inset-bottom));
+        }
+
+        .mobile-bottom-sheet.open {
+            transform: translateY(0);
+        }
+
+        .mobile-bottom-sheet .sheet-handle {
+            width: 40px;
+            height: 4px;
+            background: #d4c4e0;
+            border-radius: 2px;
+            margin: 16px auto 8px;
+        }
+
+        .mobile-bottom-sheet .sheet-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px 16px;
+            border-bottom: 1px solid rgba(104, 50, 146, 0.1);
+            position: sticky;
+            top: 0;
+            background: #fff;
+            z-index: 1;
+        }
+
+        .mobile-bottom-sheet .sheet-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0f0200;
+            margin: 0;
+        }
+
+        .mobile-bottom-sheet .sheet-close {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            background: transparent;
+            color: #646464;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 12px;
+            transition: all 0.2s;
+        }
+
+        .mobile-bottom-sheet .sheet-close:hover,
+        .mobile-bottom-sheet .sheet-close:active {
+            background: rgba(104, 50, 146, 0.04);
+            color: #683292;
+        }
+
+        .mobile-bottom-sheet .sheet-content {
+            padding: 24px;
+        }
+
+        .mobile-bottom-sheet .filter-section {
+            margin-bottom: 24px;
+        }
+
+        .mobile-bottom-sheet .filter-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .mobile-bottom-sheet .filter-section-title {
+            margin-bottom: 16px;
+        }
+
+        .mobile-bottom-sheet .radio-label {
+            padding: 16px 16px;
+            font-size: 15px;
+        }
+
+        .mobile-bottom-sheet .radio-visual {
+            width: 24px;
+            height: 24px;
+        }
+
+        .mobile-bottom-sheet .radio-visual::after {
+            width: 12px;
+            height: 12px;
+        }
+
+        .mobile-bottom-sheet .sheet-actions {
+            display: flex;
+            gap: 12px;
+            padding: 20px 24px 28px;
+            border-top: 1px solid rgba(104, 50, 146, 0.1);
+            margin-top: 8px;
+            background: linear-gradient(180deg, transparent, rgba(104, 50, 146, 0.02));
+        }
+
+        .mobile-bottom-sheet .sheet-actions .cta-btn {
+            flex: 1;
+            min-height: 52px;
+            font-size: 14px;
+            font-weight: 700;
+            border-radius: 14px;
+            letter-spacing: 0.3px;
+        }
+
+        .mobile-bottom-sheet .sheet-actions .cta-btn.clear-btn {
+            background: transparent;
+            color: #683292;
+            border: 2px solid rgba(104, 50, 146, 0.2);
+        }
+
+        .mobile-bottom-sheet .sheet-actions .cta-btn.clear-btn:hover,
+        .mobile-bottom-sheet .sheet-actions .cta-btn.clear-btn:active {
+            background: rgba(104, 50, 146, 0.06);
+            border-color: rgba(104, 50, 146, 0.4);
+            color: #5a2d7a;
+            transform: scale(0.98);
+        }
+
+        .mobile-bottom-sheet .sheet-actions .cta-btn.apply-btn {
+            background: linear-gradient(135deg, #683292, #f83d8e);
+            color: #fff;
+            border: none;
+            box-shadow: 0 4px 20px rgba(104, 50, 146, 0.35),
+                        0 0 0 1px rgba(248, 61, 142, 0.15) inset;
+        }
+
+        .mobile-bottom-sheet .sheet-actions .cta-btn.apply-btn:hover,
+        .mobile-bottom-sheet .sheet-actions .cta-btn.apply-btn:active {
+            transform: scale(0.98);
+            box-shadow: 0 6px 24px rgba(104, 50, 146, 0.45),
+                        0 0 0 1px rgba(248, 61, 142, 0.2) inset;
+            background: linear-gradient(135deg, #5a2d7a, #e0347a);
+        }
+
+        .mobile-bottom-sheet-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1040;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        .mobile-bottom-sheet-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
         .back-floating:hover {
             background: linear-gradient(135deg, #522875, #e0347a);
             color: #fff;
@@ -556,9 +1095,20 @@
         }
 
         /* Responsive */
+        @media (max-width: 1199px) {
+            .products-grid-wrapper {
+                grid-template-columns: 260px 1fr;
+                gap: 30px;
+            }
+            
+            .filter-sidebar {
+                top: 90px;
+            }
+        }
+
         @media (max-width: 991px) {
             .all-products-hero {
-                padding: 140px 0 50px;
+                padding: 50px 0 10px;
             }
 
             .all-products-hero h1 {
@@ -566,20 +1116,66 @@
                 line-height: 56px;
             }
 
-            .category-filter-section {
-                position: sticky;
-                top: 70px;
-                z-index: 100;
-                padding: 30px 0 15px;
+            .products-grid-wrapper {
+                grid-template-columns: 1fr;
             }
 
-            .filter-tabs {
-                gap: 8px;
+            .filter-sidebar {
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 320px;
+                max-width: 85vw;
+                height: 100vh;
+                max-height: 100vh;
+                z-index: 1000;
+                background: #fff;
+                padding: 24px;
+                border-radius: 0;
+                box-shadow: 4px 0 30px rgba(0, 0, 0, 0.15);
+                transform: translateX(-100%);
+                transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                overflow-y: auto;
             }
 
-            .filter-tab {
-                padding: 8px 16px;
-                font-size: 13px;
+            .filter-sidebar.open {
+                transform: translateX(0);
+            }
+
+            .filter-overlay {
+                display: none;
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.4);
+                z-index: 999;
+                opacity: 0;
+                transition: opacity 0.3s;
+            }
+
+            .filter-overlay.open {
+                display: block;
+                opacity: 1;
+            }
+
+            .mobile-filter-toggle {
+                display: flex;
+            }
+
+            .filter-section {
+                margin-bottom: 16px;
+            }
+
+            /* Mobile Bottom CTA for tablet and mobile */
+            .mobile-bottom-cta {
+                display: flex;
+            }
+
+            .product-grid-header .product-grid-sort {
+                display: none;
+            }
+
+            .product-grid-area {
+                padding-bottom: 90px;
             }
         }
 
@@ -614,40 +1210,59 @@
             .stats-bar .stat-number {
                 font-size: 26px;
             }
+
+            .product-grid-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
         }
 
         @media (max-width: 576px) {
             .all-products-hero {
-                padding: 120px 0 40px;
+                padding: 30px 0 0;
             }
 
             .all-products-hero h1 {
-                font-size: 32px;
-                line-height: 38px;
+                font-size: 28px;
+                line-height: 34px;
             }
 
-            .filter-tab {
-                padding: 8px 14px;
+            .all-products-hero p {
+                font-size: 15px;
+                line-height: 24px;
+                margin-top: 12px;
+            }
+
+            .all-products-hero .breadcrumb-nav {
                 font-size: 12px;
+                margin-bottom: 12px;
             }
 
-            .filter-tab[data-filter="premium-cups"],
-            .filter-tab[data-filter="premium-tubs"],
-            .filter-tab[data-filter="premium-cake-jars"],
-            .filter-tab[data-filter="premium-shakes"],
-            .filter-tab[data-filter="retail-cones"],
-            .filter-tab[data-filter="retail-kulfies"],
-            .filter-tab[data-filter="retail-chocobars"],
-            .filter-tab[data-filter="retail-licks"] {
-                display: none;
+            .stats-bar {
+                gap: 16px;
+                margin-top: 20px;
+                padding-top: 16px;
             }
 
-            .filter-tab .badge-count {
-                display: none;
+            .stats-bar .stat-number {
+                font-size: 24px;
+            }
+
+            .stats-bar .stat-label {
+                font-size: 11px;
             }
 
             .product-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+
+            .product-card .card-image {
+                height: 180px;
+            }
+
+            .product-card .card-image img {
+                max-height: 130px;
             }
 
             .back-floating {
@@ -663,6 +1278,29 @@
                 flex-wrap: wrap;
                 gap: 20px;
             }
+
+            .filter-sidebar {
+                width: 100%;
+                max-width: 100%;
+                border-radius: 0;
+            }
+
+            .filter-section {
+                padding: 20px;
+            }
+
+            /* Mobile Bottom CTA */
+            .mobile-bottom-cta {
+                display: flex;
+            }
+
+            .product-grid-header .product-grid-sort {
+                display: none;
+            }
+
+            .product-grid-area {
+                padding-bottom: 90px;
+            }
         }
     </style>
 </head>
@@ -672,43 +1310,15 @@
     <a id="button"></a>
 
     <!-- Header -->
-    <header class="header" style="position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.98);backdrop-filter:blur(12px);box-shadow:0 1px 10px rgba(0,0,0,0.06);">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-light p-0" style="padding: 10px 0;">
-                <a class="navbar-brand" href="index.html" style="padding: 0;">
-                    <figure class="logo mb-0"><img src="assets/images/products/logo.png" alt="Craving Creams Logo"
-                            class="img-fluid" style="height: 44px; width: auto;"></figure>
-                </a>
-                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation" style="padding: 4px 8px; border: none;">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mx-auto" style="gap: 8px;">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html" style="padding: 8px 16px; font-size: 14px; font-weight: 500; border-radius: 20px; transition: all 0.3s;">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="all-products.html?type=premium" style="padding: 8px 16px; font-size: 14px; font-weight: 500; border-radius: 20px; transition: all 0.3s;">Premium</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="all-products.html?type=retail" style="padding: 8px 16px; font-size: 14px; font-weight: 500; border-radius: 20px; transition: all 0.3s;">Retail</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="all-products.html" style="padding: 8px 16px; font-size: 14px; font-weight: 500; border-radius: 20px; transition: all 0.3s;">All Products</a>
-                        </li>
-                    </ul>
-                    <div class="last_list">
-                        <a class="text-decoration-none contact_us" href="contact.html" style="padding: 8px 20px; font-size: 13px; font-weight: 600; border-radius: 20px; background: linear-gradient(135deg, #683292, #f83d8e); color: #fff; box-shadow: 0 2px 10px rgba(248, 61, 142, 0.3); transition: all 0.3s;">Contact Us<i class="fa-solid fa-arrow-right" style="margin-left: 6px; font-size: 11px;"></i></a>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </header>
+    <header id="site-header"></header>
 
     <!-- Hero Section -->
     <section class="all-products-hero" data-aos="fade-up">
+        <div class="hero-bg-decoration">
+            <div class="hero-blob hero-blob-1"></div>
+            <div class="hero-blob hero-blob-2"></div>
+            <div class="hero-blob hero-blob-3"></div>
+        </div>
         <div class="container">
             <div class="breadcrumb-nav">
                 <a href="index.html">Home</a>
@@ -717,7 +1327,7 @@
             </div>
             <h1>All <span>Products</span></h1>
             <p>Discover our complete range of premium indulgences and retail favorites — crafted with passion, served with love.</p>
-            <div class="stats-bar" id="stats-bar">
+            <div class="stats-bar reveal-stagger" id="stats-bar">
                 <div class="stat">
                     <span class="stat-number total" id="total-products">0</span>
                     <span class="stat-label">Total Products</span>
@@ -734,35 +1344,80 @@
         </div>
     </section>
 
-    <!-- Category Filter Tabs -->
-    <section class="category-filter-section" data-aos="fade-down">
+    <!-- Products Layout -->
+    <section class="products-layout">
         <div class="container">
-            <div class="filter-tabs" id="filter-tabs">
-                <!-- Tabs will be dynamically inserted -->
-            </div>
-        </div>
-    </section>
+            <div class="products-grid-wrapper">
+                <!-- Filter Sidebar -->
+                <aside class="filter-sidebar" id="filter-sidebar">
+                    <button class="mobile-filter-toggle" id="mobile-filter-toggle" aria-label="Open filters">
+                        <i class="fa-solid fa-filter"></i>
+                        <span>Filters</span>
+                        <span class="filter-badge" id="mobile-filter-count">0</span>
+                    </button>
 
-    <!-- Product Grid -->
-    <section class="product-grid-section">
-        <div class="container">
-            <div class="product-grid" id="product-grid">
-                <!-- Products will be dynamically inserted here -->
-            </div>
+                    <div class="filter-section">
+                        <div class="filter-section-title">
+                            <h4>Product Type</h4>
+                            <a href="#" class="clear-filter" id="clear-type-filter" style="display:none;">Clear</a>
+                        </div>
+                        <div class="radio-group" id="type-filter-group">
+                            <!-- Type radio buttons will be inserted here -->
+                        </div>
+                    </div>
 
-            <!-- Empty State -->
-            <div class="empty-state" id="empty-state" style="display: none;">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <h3>No Products Found</h3>
-                <p>Try selecting a different category or view all products.</p>
-            </div>
+                    <div class="filter-section">
+                        <div class="filter-section-title">
+                            <h4>Categories</h4>
+                            <a href="#" class="clear-filter" id="clear-category-filter" style="display:none;">Clear</a>
+                        </div>
+                        <div id="category-filter-groups">
+                            <!-- Category radio buttons grouped by type will be inserted here -->
+                        </div>
+                    </div>
+                </aside>
 
-            <!-- Load More -->
-            <div class="load-more-wrapper" id="load-more-wrapper" style="display: none;">
-                <button class="btn-load-more" id="btn-load-more">
-                    <span class="spinner"></span>
-                    <span class="btn-text">Load More <i class="fa-solid fa-chevron-down" style="margin-left:6px;"></i></span>
-                </button>
+                <!-- Filter Overlay for Mobile -->
+                <div class="filter-overlay" id="filter-overlay" aria-hidden="true"></div>
+
+                <!-- Product Grid Area -->
+                <main class="product-grid-area">
+                    <div class="product-grid-header">
+                        <div class="product-grid-results" id="product-results-text">
+                            <strong>0</strong> products found
+                        </div>
+                        <div class="product-grid-sort">
+                            <label for="sort-select">Sort by:</label>
+                            <div class="sort-select-wrapper">
+                                <select id="sort-select" onchange="sortProducts()">
+                                    <option value="default">Default</option>
+                                    <option value="name-asc">Name (A-Z)</option>
+                                    <option value="name-desc">Name (Z-A)</option>
+                                    <option value="category">Category</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-grid reveal-stagger" id="product-grid">
+                        <!-- Products will be dynamically inserted here -->
+                    </div>
+
+                    <!-- Empty State -->
+                    <div class="empty-state" id="empty-state" style="display: none;">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <h3>No Products Found</h3>
+                        <p>Try selecting a different category or view all products.</p>
+                    </div>
+
+                    <!-- Load More -->
+                    <div class="load-more-wrapper" id="load-more-wrapper" style="display: none;">
+                        <button class="btn-load-more" id="btn-load-more">
+                            <span class="spinner"></span>
+                            <span class="btn-text">Load More <i class="fa-solid fa-chevron-down" style="margin-left:6px;"></i></span>
+                        </button>
+                    </div>
+                </main>
             </div>
         </div>
     </section>
@@ -850,6 +1505,82 @@
     <!-- Back to Home floating button -->
     <a href="index.html" class="back-floating" title="Back to Home"><i class="fa-solid fa-house"></i></a>
 
+    <!-- Mobile Bottom CTA Bar -->
+    <div class="mobile-bottom-cta" id="mobile-bottom-cta">
+        <div class="cta-inner">
+            <button class="cta-btn filter-btn" id="mobile-filter-cta" aria-label="Open filters">
+                <i class="fa-solid fa-filter"></i>
+                <span>Filters</span>
+                <span class="btn-badge" id="mobile-cta-filter-count">0</span>
+            </button>
+            <button class="cta-btn sort-btn" id="mobile-sort-cta" aria-label="Open sort options">
+                <i class="fa-solid fa-arrow-up-wide-short"></i>
+                <span>Sort</span>
+                <span class="btn-badge" id="mobile-cta-sort-label">Default</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Bottom Sheet Overlay -->
+    <div class="mobile-bottom-sheet-overlay" id="mobile-sheet-overlay" aria-hidden="true"></div>
+
+    <!-- Mobile Filter Sheet -->
+    <div class="mobile-bottom-sheet" id="mobile-filter-sheet" role="dialog" aria-modal="true" aria-labelledby="filter-sheet-title">
+        <div class="sheet-handle"></div>
+        <div class="sheet-header">
+            <h3 class="sheet-title" id="filter-sheet-title">Filters</h3>
+            <button class="sheet-close" id="close-filter-sheet" aria-label="Close filters"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="sheet-content" id="mobile-filter-content">
+            <!-- Filter content will be inserted here -->
+        </div>
+        <div class="sheet-actions">
+            <button class="cta-btn clear-btn" id="mobile-filter-clear-all">Clear All</button>
+            <button class="cta-btn apply-btn" id="mobile-filter-apply">Apply Filters</button>
+        </div>
+    </div>
+
+    <!-- Mobile Sort Sheet -->
+    <div class="mobile-bottom-sheet" id="mobile-sort-sheet" role="dialog" aria-modal="true" aria-labelledby="sort-sheet-title">
+        <div class="sheet-handle"></div>
+        <div class="sheet-header">
+            <h3 class="sheet-title" id="sort-sheet-title">Sort By</h3>
+            <button class="sheet-close" id="close-sort-sheet" aria-label="Close sort"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="sheet-content" id="mobile-sort-content">
+            <div class="radio-group">
+                <div class="radio-item">
+                    <input type="radio" class="radio-input" name="mobile-sort" id="mobile-sort-default" value="default" onchange="setMobileSort('default')">
+                    <label class="radio-label" for="mobile-sort-default">
+                        <span class="radio-visual"></span>
+                        <span class="radio-text">Default</span>
+                    </label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" class="radio-input" name="mobile-sort" id="mobile-sort-name-asc" value="name-asc" onchange="setMobileSort('name-asc')">
+                    <label class="radio-label" for="mobile-sort-name-asc">
+                        <span class="radio-visual"></span>
+                        <span class="radio-text">Name (A-Z)</span>
+                    </label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" class="radio-input" name="mobile-sort" id="mobile-sort-name-desc" value="name-desc" onchange="setMobileSort('name-desc')">
+                    <label class="radio-label" for="mobile-sort-name-desc">
+                        <span class="radio-visual"></span>
+                        <span class="radio-text">Name (Z-A)</span>
+                    </label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" class="radio-input" name="mobile-sort" id="mobile-sort-category" value="category" onchange="setMobileSort('category')">
+                    <label class="radio-label" for="mobile-sort-category">
+                        <span class="radio-visual"></span>
+                        <span class="radio-text">Category</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script src="assets/js/jquery-3.7.1.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
@@ -869,7 +1600,8 @@
         let currentPage = 1;
         let allProducts = [];
         let filteredProducts = [];
-        let activeFilter = 'all';
+        let activeTypeFilter = 'all'; // 'all', 'premium', 'retail'
+        let activeCategoryFilter = 'all'; // 'all' or categoryId
 
         // Get URL parameter for initial filter
         const urlParams = new URLSearchParams(window.location.search);
@@ -896,96 +1628,464 @@
             return list;
         }
 
-        // Render filter tabs
-        function renderFilterTabs() {
-            const container = document.getElementById('filter-tabs');
+        // Render filter controls
+        function renderFilters() {
             const typeCounts = { premium: 0, retail: 0 };
-            
+            const categoryCounts = {};
+
             allProducts.forEach(p => {
                 if (p.categoryType === 'premium') typeCounts.premium++;
                 else typeCounts.retail++;
+                
+                if (!categoryCounts[p.categoryId]) {
+                    categoryCounts[p.categoryId] = {
+                        count: 0,
+                        title: p.categoryTitle,
+                        type: p.categoryType,
+                        icon: p.categoryIcon
+                    };
+                }
+                categoryCounts[p.categoryId].count++;
             });
 
             const totalCount = allProducts.length;
 
-            // Determine active tab from URL
-            let activeTab = 'all';
+            // Determine active filters from URL
             if (initialCategory) {
                 const cat = PRODUCT_DATA[initialCategory];
-                if (cat) activeTab = initialCategory;
+                if (cat) {
+                    activeCategoryFilter = initialCategory;
+                    activeTypeFilter = cat.type;
+                }
             } else if (initialType) {
-                activeTab = initialType;
+                activeTypeFilter = initialType;
             }
 
-            const tabs = [
-                { id: 'all', label: 'All Products', count: totalCount, type: 'primary', icon: 'fa-solid fa-list' },
-                { id: 'premium', label: 'Premium', count: typeCounts.premium, type: 'premium', icon: 'fa-solid fa-crown' },
-                { id: 'retail', label: 'Retail', count: typeCounts.retail, type: 'secondary', icon: 'fa-solid fa-ice-cream' }
+            // Render Type Filters
+            const typeContainer = document.getElementById('type-filter-group');
+            const typeOptions = [
+                { id: 'all', label: 'All Products', count: totalCount, className: '' },
+                { id: 'premium', label: 'Premium', count: typeCounts.premium, className: 'premium' },
+                { id: 'retail', label: 'Retail', count: typeCounts.retail, className: 'retail' }
             ];
 
-            // Add sub-category tabs
+            typeContainer.innerHTML = typeOptions.map(opt => `
+                <div class="radio-item ${opt.className}">
+                    <input type="radio" class="radio-input" name="type-filter" id="type-${opt.id}" value="${opt.id}" ${opt.id === activeTypeFilter ? 'checked' : ''} onchange="setTypeFilter('${opt.id}')">
+                    <label class="radio-label" for="type-${opt.id}">
+                        <span class="radio-visual"></span>
+                        <span class="radio-text"><i class="${opt.id === 'all' ? 'fa-solid fa-list' : (opt.id === 'premium' ? 'fa-solid fa-crown' : 'fa-solid fa-ice-cream')}"></i> ${opt.label}</span>
+                        <span class="radio-count">${opt.count}</span>
+                    </label>
+                </div>
+            `).join('');
+
+            // Render Category Filters grouped by type
+            const categoryContainer = document.getElementById('category-filter-groups');
+            const premiumCategories = [];
+            const retailCategories = [];
+
             Object.keys(PRODUCT_DATA).forEach(catId => {
                 const cat = PRODUCT_DATA[catId];
-                tabs.push({
-                    id: catId,
-                    label: cat.title,
-                    count: cat.items.length,
-                    type: cat.type === 'premium' ? 'outline' : 'outline',
-                    icon: cat.typeIcon
+                const count = categoryCounts[catId]?.count || 0;
+                if (cat.type === 'premium') {
+                    premiumCategories.push({ id: catId, title: cat.title, count, icon: cat.typeIcon });
+                } else {
+                    retailCategories.push({ id: catId, title: cat.title, count, icon: cat.typeIcon });
+                }
+            });
+
+            let categoryHtml = '';
+            
+            if (premiumCategories.length > 0) {
+                categoryHtml += `<div class="category-group-title premium">Premium Range</div>`;
+                categoryHtml += `<div class="radio-group">`;
+                premiumCategories.forEach(cat => {
+                    const isActive = activeCategoryFilter === cat.id;
+                    categoryHtml += `
+                        <div class="radio-item premium">
+                            <input type="radio" class="radio-input" name="category-filter" id="cat-${cat.id}" value="${cat.id}" ${isActive ? 'checked' : ''} onchange="setCategoryFilter('${cat.id}')">
+                            <label class="radio-label" for="cat-${cat.id}">
+                                <span class="radio-visual"></span>
+                                <span class="radio-text"><i class="${cat.icon}"></i> ${cat.title}</span>
+                                <span class="radio-count">${cat.count}</span>
+                            </label>
+                        </div>
+                    `;
                 });
-            });
-
-            container.innerHTML = tabs.map(tab => {
-                const isActive = tab.id === activeTab ? 'active' : '';
-                const tabClass = tab.type === 'primary' ? 'primary-tab' : (tab.type === 'secondary' ? 'secondary-tab' : 'outline-tab');
-                return `
-                    <button class="filter-tab ${tabClass} ${isActive}" data-filter="${tab.id}" onclick="setFilter('${tab.id}')">
-                        <i class="${tab.icon}"></i>
-                        <span>${tab.label}</span>
-                        <span class="badge-count">${tab.count}</span>
-                    </button>
-                `;
-            }).join('');
-
-            // Set initial filter
-            setFilter(activeTab, false);
-        }
-
-        // Set active filter
-        function setFilter(filterId, updateUrl = true) {
-            activeFilter = filterId;
-            currentPage = 1;
-
-            // Update active tab UI
-            document.querySelectorAll('.filter-tab').forEach(tab => {
-                tab.classList.toggle('active', tab.dataset.filter === filterId);
-            });
-
-            // Filter products
-            if (filterId === 'all') {
-                filteredProducts = [...allProducts];
-            } else if (filterId === 'premium') {
-                filteredProducts = allProducts.filter(p => p.categoryType === 'premium');
-            } else if (filterId === 'retail') {
-                filteredProducts = allProducts.filter(p => p.categoryType === 'retail');
-            } else {
-                // Specific category
-                filteredProducts = allProducts.filter(p => p.categoryId === filterId);
+                categoryHtml += `</div>`;
             }
 
+            if (retailCategories.length > 0) {
+                categoryHtml += `<div class="category-group-title retail">Retail Range</div>`;
+                categoryHtml += `<div class="radio-group">`;
+                retailCategories.forEach(cat => {
+                    const isActive = activeCategoryFilter === cat.id;
+                    categoryHtml += `
+                        <div class="radio-item retail">
+                            <input type="radio" class="radio-input" name="category-filter" id="cat-${cat.id}" value="${cat.id}" ${isActive ? 'checked' : ''} onchange="setCategoryFilter('${cat.id}')">
+                            <label class="radio-label" for="cat-${cat.id}">
+                                <span class="radio-visual"></span>
+                                <span class="radio-text"><i class="${cat.icon}"></i> ${cat.title}</span>
+                                <span class="radio-count">${cat.count}</span>
+                            </label>
+                        </div>
+                    `;
+                });
+                categoryHtml += `</div>`;
+            }
+
+            categoryContainer.innerHTML = categoryHtml;
+
+            // Show/hide clear buttons
+            updateClearButtons();
+
+            // Set initial filter
+            applyFilters(false);
+        }
+
+        // Update clear filter buttons visibility
+        function updateClearButtons() {
+            document.getElementById('clear-type-filter').style.display = activeTypeFilter !== 'all' ? 'inline' : 'none';
+            document.getElementById('clear-category-filter').style.display = activeCategoryFilter !== 'all' ? 'inline' : 'none';
+            
+            // Update mobile filter badge
+            let activeCount = 0;
+            if (activeTypeFilter !== 'all') activeCount++;
+            if (activeCategoryFilter !== 'all') activeCount++;
+            document.getElementById('mobile-filter-count').textContent = activeCount;
+            document.getElementById('mobile-filter-count').style.display = activeCount > 0 ? 'inline-block' : 'none';
+        }
+
+        // Update mobile CTA badges
+        function updateMobileCTA() {
+            let activeCount = 0;
+            if (activeTypeFilter !== 'all') activeCount++;
+            if (activeCategoryFilter !== 'all') activeCount++;
+            
+            const filterCountEl = document.getElementById('mobile-cta-filter-count');
+            if (filterCountEl) {
+                filterCountEl.textContent = activeCount;
+                filterCountEl.style.display = activeCount > 0 ? 'inline-block' : 'none';
+            }
+
+            // Update sort label
+            const sortLabels = {
+                'default': 'Default',
+                'name-asc': 'A-Z',
+                'name-desc': 'Z-A',
+                'category': 'Category'
+            };
+            const sortLabelEl = document.getElementById('mobile-cta-sort-label');
+            if (sortLabelEl) {
+                sortLabelEl.textContent = sortLabels[document.getElementById('sort-select').value] || 'Default';
+            }
+        }
+
+        // Set type filter
+        function setTypeFilter(typeId) {
+            activeTypeFilter = typeId;
+            
+            // If selecting a type, clear category filter
+            if (typeId !== 'all') {
+                activeCategoryFilter = 'all';
+            }
+            
+            currentPage = 1;
+            updateFilterUI();
+            applyFilters();
+        }
+
+        // Set category filter
+        function setCategoryFilter(categoryId) {
+            activeCategoryFilter = categoryId;
+            
+            // Update type filter based on category
+            if (categoryId !== 'all') {
+                const cat = PRODUCT_DATA[categoryId];
+                if (cat) {
+                    activeTypeFilter = cat.type;
+                }
+            }
+            
+            currentPage = 1;
+            updateFilterUI();
+            applyFilters();
+        }
+
+        // Clear type filter
+        function clearTypeFilter() {
+            activeTypeFilter = 'all';
+            currentPage = 1;
+            updateFilterUI();
+            applyFilters();
+        }
+
+        // Clear category filter
+        function clearCategoryFilter() {
+            activeCategoryFilter = 'all';
+            currentPage = 1;
+            updateFilterUI();
+            applyFilters();
+        }
+
+        // Update filter UI (radio buttons)
+        function updateFilterUI() {
+            // Update type radio buttons
+            document.querySelectorAll('input[name="type-filter"]').forEach(input => {
+                input.checked = input.value === activeTypeFilter;
+            });
+
+            // Update category radio buttons
+            document.querySelectorAll('input[name="category-filter"]').forEach(input => {
+                input.checked = input.value === activeCategoryFilter;
+            });
+
+            updateClearButtons();
+            updateMobileCTA();
+        }
+
+        // Apply filters to products
+        function applyFilters(updateUrl = true) {
+            // Filter by type
+            let filtered = [...allProducts];
+            
+            if (activeTypeFilter === 'premium') {
+                filtered = filtered.filter(p => p.categoryType === 'premium');
+            } else if (activeTypeFilter === 'retail') {
+                filtered = filtered.filter(p => p.categoryType === 'retail');
+            }
+
+            // Filter by category
+            if (activeCategoryFilter !== 'all') {
+                filtered = filtered.filter(p => p.categoryId === activeCategoryFilter);
+            }
+
+            filteredProducts = filtered;
+            
+            // Apply current sort
+            sortProducts(false);
+            
             renderProducts();
             updateStats();
 
             // Update URL without reload
             if (updateUrl) {
                 let newUrl = 'all-products.html';
-                if (filterId === 'premium' || filterId === 'retail') {
-                    newUrl += '?type=' + filterId;
-                } else if (filterId !== 'all') {
-                    newUrl += '?cat=' + filterId;
+                const params = new URLSearchParams();
+                
+                if (activeCategoryFilter !== 'all') {
+                    params.set('cat', activeCategoryFilter);
+                } else if (activeTypeFilter !== 'all') {
+                    params.set('type', activeTypeFilter);
+                }
+                
+                if (params.toString()) {
+                    newUrl += '?' + params.toString();
                 }
                 window.history.replaceState({}, '', newUrl);
             }
+        }
+
+        // Sort products
+        function sortProducts(rerender = true) {
+            const sortValue = document.getElementById('sort-select').value;
+            
+            filteredProducts.sort((a, b) => {
+                switch (sortValue) {
+                    case 'name-asc':
+                        return a.name.localeCompare(b.name);
+                    case 'name-desc':
+                        return b.name.localeCompare(a.name);
+                    case 'category':
+                        if (a.categoryTitle !== b.categoryTitle) {
+                            return a.categoryTitle.localeCompare(b.categoryTitle);
+                        }
+                        return a.name.localeCompare(b.name);
+                    default:
+                        return 0; // Keep original order
+                }
+            });
+
+            if (rerender) {
+                currentPage = 1;
+                renderProducts();
+            }
+        }
+
+        // Set mobile sort
+        function setMobileSort(value) {
+            document.getElementById('sort-select').value = value;
+            sortProducts();
+            closeMobileSheet('sort');
+        }
+
+        // Mobile bottom sheet functions
+        function openMobileSheet(type) {
+            const overlay = document.getElementById('mobile-sheet-overlay');
+            if (type === 'filter') {
+                const sheet = document.getElementById('mobile-filter-sheet');
+                renderMobileFilterContent();
+                sheet.classList.add('open');
+            } else if (type === 'sort') {
+                const sheet = document.getElementById('mobile-sort-sheet');
+                updateMobileSortRadios();
+                sheet.classList.add('open');
+            }
+            overlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileSheet(type) {
+            const overlay = document.getElementById('mobile-sheet-overlay');
+            if (type === 'filter') {
+                document.getElementById('mobile-filter-sheet').classList.remove('open');
+            } else if (type === 'sort') {
+                document.getElementById('mobile-sort-sheet').classList.remove('open');
+            }
+            overlay.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        function updateMobileSortRadios() {
+            const sortValue = document.getElementById('sort-select').value;
+            document.querySelectorAll('input[name="mobile-sort"]').forEach(input => {
+                input.checked = input.value === sortValue;
+            });
+        }
+
+        function renderMobileFilterContent() {
+            const container = document.getElementById('mobile-filter-content');
+            const typeCounts = { premium: 0, retail: 0 };
+            const categoryCounts = {};
+
+            allProducts.forEach(p => {
+                if (p.categoryType === 'premium') typeCounts.premium++;
+                else typeCounts.retail++;
+                
+                if (!categoryCounts[p.categoryId]) {
+                    categoryCounts[p.categoryId] = {
+                        count: 0,
+                        title: p.categoryTitle,
+                        type: p.categoryType,
+                        icon: p.categoryIcon
+                    };
+                }
+                categoryCounts[p.categoryId].count++;
+            });
+
+            const totalCount = allProducts.length;
+
+            let html = '';
+
+            // Type filters
+            html += `<div class="filter-section">`;
+            html += `<div class="filter-section-title"><h4>Product Type</h4></div>`;
+            html += `<div class="radio-group">`;
+            
+            const typeOptions = [
+                { id: 'all', label: 'All Products', count: totalCount, className: '', icon: 'fa-solid fa-list' },
+                { id: 'premium', label: 'Premium', count: typeCounts.premium, className: 'premium', icon: 'fa-solid fa-crown' },
+                { id: 'retail', label: 'Retail', count: typeCounts.retail, className: 'retail', icon: 'fa-solid fa-ice-cream' }
+            ];
+
+            typeOptions.forEach(opt => {
+                const isActive = activeTypeFilter === opt.id;
+                html += `
+                    <div class="radio-item ${opt.className}">
+                        <input type="radio" class="radio-input" name="mobile-type-filter" id="mobile-type-${opt.id}" value="${opt.id}" ${isActive ? 'checked' : ''} onchange="setMobileTypeFilter('${opt.id}')">
+                        <label class="radio-label" for="mobile-type-${opt.id}">
+                            <span class="radio-visual"></span>
+                            <span class="radio-text"><i class="${opt.icon}"></i> ${opt.label}</span>
+                            <span class="radio-count">${opt.count}</span>
+                        </label>
+                    </div>
+                `;
+            });
+            html += `</div></div>`;
+
+            // Category filters
+            html += `<div class="filter-section">`;
+            html += `<div class="filter-section-title"><h4>Categories</h4></div>`;
+
+            const premiumCategories = [];
+            const retailCategories = [];
+
+            Object.keys(PRODUCT_DATA).forEach(catId => {
+                const cat = PRODUCT_DATA[catId];
+                const count = categoryCounts[catId]?.count || 0;
+                if (cat.type === 'premium') {
+                    premiumCategories.push({ id: catId, title: cat.title, count, icon: cat.typeIcon });
+                } else {
+                    retailCategories.push({ id: catId, title: cat.title, count, icon: cat.typeIcon });
+                }
+            });
+
+            if (premiumCategories.length > 0) {
+                html += `<div class="category-group-title premium">Premium Range</div>`;
+                html += `<div class="radio-group">`;
+                premiumCategories.forEach(cat => {
+                    const isActive = activeCategoryFilter === cat.id;
+                    html += `
+                        <div class="radio-item premium">
+                            <input type="radio" class="radio-input" name="mobile-category-filter" id="mobile-cat-${cat.id}" value="${cat.id}" ${isActive ? 'checked' : ''} onchange="setMobileCategoryFilter('${cat.id}')">
+                            <label class="radio-label" for="mobile-cat-${cat.id}">
+                                <span class="radio-visual"></span>
+                                <span class="radio-text"><i class="${cat.icon}"></i> ${cat.title}</span>
+                                <span class="radio-count">${cat.count}</span>
+                            </label>
+                        </div>
+                    `;
+                });
+                html += `</div>`;
+            }
+
+            if (retailCategories.length > 0) {
+                html += `<div class="category-group-title retail">Retail Range</div>`;
+                html += `<div class="radio-group">`;
+                retailCategories.forEach(cat => {
+                    const isActive = activeCategoryFilter === cat.id;
+                    html += `
+                        <div class="radio-item retail">
+                            <input type="radio" class="radio-input" name="mobile-category-filter" id="mobile-cat-${cat.id}" value="${cat.id}" ${isActive ? 'checked' : ''} onchange="setMobileCategoryFilter('${cat.id}')">
+                            <label class="radio-label" for="mobile-cat-${cat.id}">
+                                <span class="radio-visual"></span>
+                                <span class="radio-text"><i class="${cat.icon}"></i> ${cat.title}</span>
+                                <span class="radio-count">${cat.count}</span>
+                            </label>
+                        </div>
+                    `;
+                });
+                html += `</div>`;
+            }
+
+            html += `</div>`;
+            container.innerHTML = html;
+        }
+
+        // Mobile type filter
+        function setMobileTypeFilter(typeId) {
+            activeTypeFilter = typeId;
+            if (typeId !== 'all') {
+                activeCategoryFilter = 'all';
+            }
+            currentPage = 1;
+            updateFilterUI();
+            applyFilters();
+            renderMobileFilterContent();
+        }
+
+        // Mobile category filter
+        function setMobileCategoryFilter(categoryId) {
+            activeCategoryFilter = categoryId;
+            if (categoryId !== 'all') {
+                const cat = PRODUCT_DATA[categoryId];
+                if (cat) activeTypeFilter = cat.type;
+            }
+            currentPage = 1;
+            updateFilterUI();
+            applyFilters();
+            renderMobileFilterContent();
         }
 
         // Render products for current page
@@ -1003,6 +2103,9 @@
                 grid.innerHTML = '';
             }
 
+            // Update results text
+            document.getElementById('product-results-text').innerHTML = `<strong>${filteredProducts.length}</strong> product${filteredProducts.length !== 1 ? 's' : ''} found`;
+
             if (productsToShow.length === 0 && currentPage === 1) {
                 grid.style.display = 'none';
                 emptyState.style.display = 'block';
@@ -1017,8 +2120,7 @@
                 const card = document.createElement('div');
                 const isPremium = product.categoryType === 'premium';
                 card.className = `product-card ${isPremium ? 'premium-card' : 'retail-card'}`;
-                card.setAttribute('data-aos', 'fade-up');
-                card.setAttribute('data-aos-delay', ((index % 12) * 50).toString());
+                card.style.animationDelay = `${(index % 12) * 50}ms`;
                 card.onclick = function() {
                     window.location.href = 'product.html?cat=' + product.categoryId + '&product=' + product.id;
                 };
@@ -1075,15 +2177,105 @@
             document.getElementById('retail-count').textContent = retailCount;
         }
 
+        // Mobile filter toggle
+        function initMobileFilter() {
+            const toggle = document.getElementById('mobile-filter-toggle');
+            const sidebar = document.getElementById('filter-sidebar');
+            const overlay = document.getElementById('filter-overlay');
+
+            toggle.addEventListener('click', () => {
+                sidebar.classList.toggle('open');
+                overlay.classList.toggle('open');
+                document.body.style.overflow = sidebar.classList.contains('open') ? 'hidden' : '';
+            });
+
+            overlay.addEventListener('click', () => {
+                sidebar.classList.remove('open');
+                overlay.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+
+            // Close on escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && sidebar.classList.contains('open')) {
+                    sidebar.classList.remove('open');
+                    overlay.classList.remove('open');
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+
+        // Initialize mobile bottom CTA and sheets
+        function initMobileBottomCTA() {
+            // Filter CTA
+            document.getElementById('mobile-filter-cta').addEventListener('click', () => openMobileSheet('filter'));
+            
+            // Sort CTA
+            document.getElementById('mobile-sort-cta').addEventListener('click', () => openMobileSheet('sort'));
+
+            // Close buttons
+            document.getElementById('close-filter-sheet').addEventListener('click', () => closeMobileSheet('filter'));
+            document.getElementById('close-sort-sheet').addEventListener('click', () => closeMobileSheet('sort'));
+
+            // Overlay click
+            document.getElementById('mobile-sheet-overlay').addEventListener('click', () => {
+                closeMobileSheet('filter');
+                closeMobileSheet('sort');
+            });
+
+            // Filter sheet actions
+            document.getElementById('mobile-filter-clear-all').addEventListener('click', () => {
+                activeTypeFilter = 'all';
+                activeCategoryFilter = 'all';
+                currentPage = 1;
+                updateFilterUI();
+                applyFilters();
+                renderMobileFilterContent();
+            });
+
+            document.getElementById('mobile-filter-apply').addEventListener('click', () => {
+                closeMobileSheet('filter');
+            });
+
+            // Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeMobileSheet('filter');
+                    closeMobileSheet('sort');
+                }
+            });
+        }
+
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
             allProducts = buildProductList();
-            renderFilterTabs();
+            renderFilters();
 
             // Load more button event
             document.getElementById('btn-load-more').addEventListener('click', loadMore);
+
+            // Clear filter buttons
+            document.getElementById('clear-type-filter').addEventListener('click', (e) => {
+                e.preventDefault();
+                clearTypeFilter();
+            });
+            document.getElementById('clear-category-filter').addEventListener('click', (e) => {
+                e.preventDefault();
+                clearCategoryFilter();
+            });
+
+            // Mobile filter sidebar (legacy)
+            initMobileFilter();
+
+            // Mobile bottom CTA
+            initMobileBottomCTA();
+
+            // Initial mobile CTA update
+            updateMobileCTA();
         });
     </script>
+    <script src="assets/js/header.js" defer></script>
+    <script src="assets/js/product-animations.js" defer></script>
 </body>
 
 </html>
