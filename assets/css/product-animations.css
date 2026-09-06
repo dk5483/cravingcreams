@@ -577,28 +577,7 @@
   }
 }
 
-/* Load more button */
-.btn-load-more {
-  animation: loadMoreReveal 0.5s var(--anim-easing) forwards;
-  opacity: 0;
-  transform: translateY(20px);
-}
 
-.btn-load-more .spinner {
-  animation: spin 0.8s linear infinite;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-@keyframes loadMoreReveal {
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.btn-load-more:not(:disabled):hover {
-  animation: buttonPulse 0.6s var(--anim-easing);
-}
 
 /* Stats bar */
 .stats-bar {
